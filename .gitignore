@@ -18,3 +18,9 @@ Homestead.json
 
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
+/app/Models/ManufactureManage/Outinputhead.php
+/app/Models/ManufactureManage/Outinputitem.php
+/app/Http/Controllers/ManufactureManage/OutputinfoController.php
+/app/Models/ManufactureManage/Outputinfo.php
+/database/migrations/2019_08_16_161152_create_outputinfos_table.php
+/app/Http/Controllers/ManufuctureManage
