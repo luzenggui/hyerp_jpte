@@ -170,10 +170,6 @@ class UserController extends Controller
                 $query->where('name', 'like',  '%' . $key . '%');
             });
         }
-
-
-
-
         $users = $query->select('users.*')
             ->paginate(10);
 //        dd($paymentrequests);
@@ -185,6 +181,15 @@ class UserController extends Controller
     {
         //
         $user = User::findOrFail($id);
+        return view('system.users.editpass', compact('user'));
+    }
+
+    public function editpass_per()
+    {
+        //
+        $userid = Auth()->user()->id;
+//        dd($userid);
+        $user = User::findOrFail($userid);
         return view('system.users.editpass', compact('user'));
     }
 
