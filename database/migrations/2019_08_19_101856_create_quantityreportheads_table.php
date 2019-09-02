@@ -24,7 +24,7 @@ class CreateQuantityreportheadsTable extends Migration
             $table->integer('length')->nullable();                //码长
             $table->integer('totalpoints')->nullable();                //总罚分
             $table->decimal('y100points',2)->nullable();                //100y总罚分
-            $table->string('grade')->nullable();                //评级
+            $table->string('grade')->nullable()->nullable();                //评级
             $table->integer('processinfo_id');                //工艺单号
             $table->string('checkshifts');                //检验班次
             $table->string('createname');                //创建人

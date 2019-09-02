@@ -49,7 +49,7 @@
 
     {!! Form::label('checkshifts', '验布班次(Checkshifts)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
-        {!! Form::text('checkshifts', null, ['class' => 'form-control', $attr]) !!}
+        {!! Form::select('checkshifts', array('A'=>'A','B'=>'B','C'=>'C',), ['class' => 'form-control', $attr]) !!}
     </div>
 </div>
 
@@ -61,10 +61,8 @@
 
     {!! Form::label('totalpoints', '总罚分(TotalPoints)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
-        {!! Form::text('totalpoints', null,['class' => 'form-control',$attr]) !!}
+        {!! Form::text('totalpoints', null,['class' => 'form-control', 'readonly',$attr]) !!}
     </div>
-
-
 </div>
 
 <div class="form-group">

@@ -6,7 +6,7 @@
 
     {!! Form::label('manufactureshifts', '班别(Manufactureshifts)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
     <div class='col-xs-1 col-sm-1'>
-        {!! Form::text('manufactureshifts', null, ['class' => 'form-control', $attr]) !!}
+        {!! Form::select('manufactureshifts', array('A'=>'A','B'=>'B','C'=>'C',), ['class' => 'form-control', $attr]) !!}
     </div>
 
     {!! Form::label('length', '码长(Length)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}

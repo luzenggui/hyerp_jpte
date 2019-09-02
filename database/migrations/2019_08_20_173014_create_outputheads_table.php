@@ -20,7 +20,7 @@ class CreateOutputheadsTable extends Migration
             $table->date('outputdate');                       //出货日期
             $table->integer('processinfo_id');                            //工艺单id
             $table->string('createname');                            //创建人
-            $table->string('note')->nullabel();                            //备注
+            $table->string('note')->nullable();                            //备注
             
             $table->timestamps();
 
