@@ -35,19 +35,19 @@
             @foreach($outputquantityitems as $outputquantityitem)
                 <tr>
                     <td>
-                        {{$outputitem->fabricno}}
+                        {{$outputquantityitem->fabricno}}
                     </td>
                     <td>
-                        {{ $outputitem->machineno }}
+                        {{ $outputquantityitem->machineno }}
                     </td>
                     <td>
-                        {{ $outputitem->meter }}
+                        {{ $outputquantityitem->meter }}
                     </td>
                     <td>
-                        {{ $outputitem->mass }}
+                        {{ $outputquantityitem->mass }}
                     </td>
                     <td>
-                        {{ $outputitem->remark }}
+                        {{ $outputquantityitem->remark }}
                     </td>
                     <td>
                         {{$outputquantityitem->length}}

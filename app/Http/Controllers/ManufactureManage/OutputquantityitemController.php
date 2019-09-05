@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\ManufactureManage;
 
+use App\Models\ManufactureManage\Outputquantityhead;
 use App\Models\ManufactureManage\Outputquantityitem;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -67,7 +68,7 @@ class OutputquantityitemController extends Controller
     {
         //
 //        $quantityreporthead = Quantityreporthead::findOrFail($id);
-        $outputquantityitems = Outputquantityitem::where('quantityreporthead_id','=',$id)->get();
+        $outputquantityitems = Outputquantityitem::where('outputquantityhead_id','=',$id)->get();
         $v_note='';
         $v_length=0;
         $v_totalpoints=0;
@@ -99,10 +100,10 @@ class OutputquantityitemController extends Controller
                 $v_grade='C';
 
 //            dd($v_note,$v_length,$v_totalpoints,$v_y100points,$v_grade);
-            Ouptputquantityhead::where('id','=',$id)
+            Outputquantityhead::where('id','=',$id)
                 ->update(['note'=>$v_note,'length'=>$v_length,'totalpoints'=>$v_totalpoints,'y100points'=>$v_y100points,'grade'=>$v_grade]);
         }
-        return redirect('ManufactureManage/Ouptputquantityhead/'.$id.'/detail');
+        return redirect('ManufactureManage/Outputquantityhead/'.$id.'/detail');
     }
 
     /**

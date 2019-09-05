@@ -36,7 +36,59 @@ class OutputquantityheadController extends Controller
     public function detail($id)
     {
         $outputquantityitems = Outputquantityitem::latest('created_at')->where('outputquantityhead_id', $id)->paginate(10);
-        return view('ManufactureManage.Outputquantityitem.index', compact('outputquantityitems', 'id'));
+        $arrayflag=array('Loosewarp'=>'N','Wrongdraft'=>'N','Dentmark'=>'N','Warpstreak'=>'N','Brokend_fillings'=>'N','Hole'=>'N','Wrongend_pick'=>'N','Oiledend_pick'=>'N','Shirikend_pick'=>'N','Doublewarp_weft'=>'N','Shw_selvedgemark'=>'N','Colorstreaks'=>'N','Weftbar'=>'N','Beltweft'=>'N','Foreignyarn'=>'N','Knots'=>'N','Neps'=>'N','Tw'=>'N','Fh'=>'N','Cws'=>'N','Th'=>'N','Thn'=>'N','Bsc'=>'N','Jb'=>'N',);
+        foreach ($outputquantityitems as $outputquantityitem)
+        {
+            if($outputquantityitem->loosewarp)
+                $arrayflag['Loosewarp']='Y';
+            if($outputquantityitem->wrongdraft)
+                $arrayflag['Wrongdraft']='Y';
+            if($outputquantityitem->dentmark)
+                $arrayflag['Dentmark']='Y';
+            if($outputquantityitem->warpstreak)
+                $arrayflag['Warpstreak']='Y';
+            if($outputquantityitem->brokend_fillings)
+                $arrayflag['Brokend_fillings']='Y';
+            if($outputquantityitem->hole)
+                $arrayflag['Hole']='Y';
+            if($outputquantityitem->wrongend_pick)
+                $arrayflag['Wrongend_pick']='Y';
+            if($outputquantityitem->oiledend_pick)
+                $arrayflag['Oiledend_pick']='Y';
+            if($outputquantityitem->shirikend_pick)
+                $arrayflag['Shirikend_pick']='Y';
+            if($outputquantityitem->doublewarp_weft)
+                $arrayflag['Doublewarp_weft']='Y';
+            if($outputquantityitem->shw_selvedgemark)
+                $arrayflag['Shw_selvedgemark']='Y';
+            if($outputquantityitem->colorstreaks)
+                $arrayflag['Colorstreaks']='Y';
+            if($outputquantityitem->weftbar)
+                $arrayflag['Weftbar']='Y';
+            if($outputquantityitem->beltweft)
+                $arrayflag['Beltweft']='Y';
+            if($outputquantityitem->foreignyarn)
+                $arrayflag['Foreignyarn']='Y';
+            if($outputquantityitem->knots)
+                $arrayflag['Knots']='Y';
+            if($outputquantityitem->neps)
+                $arrayflag['Neps']='Y';
+            if($outputquantityitem->tw)
+                $arrayflag['Tw']='Y';
+            if($outputquantityitem->fh)
+                $arrayflag['Fh']='Y';
+            if($outputquantityitem->cws)
+                $arrayflag['Cws']='Y';
+            if($outputquantityitem->th)
+                $arrayflag['Th']='Y';
+            if($outputquantityitem->thn)
+                $arrayflag['Thn']='Y';
+            if($outputquantityitem->bsc)
+                $arrayflag['Bsc']='Y';
+            if($outputquantityitem->jb)
+                $arrayflag['Jb']='Y';
+        }
+        return view('ManufactureManage.Outputquantityitem.index', compact('outputquantityitems', 'id','arrayflag'));
     }
 
     /**
