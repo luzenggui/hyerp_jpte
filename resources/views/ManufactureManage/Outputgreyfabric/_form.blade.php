@@ -62,7 +62,7 @@
 
     {!! Form::label('ifcomplete', '是否了机(Ifcomplete)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
-        {!! Form::select('ifcomplete', array('是'=>'是','否'=>'否'), ['class' => 'form-control', $attr]) !!}
+        {!! Form::select('ifcomplete', array('否'=>'否','是'=>'是'), ['class' => 'form-control', $attr]) !!}
     </div>
 </div>
 

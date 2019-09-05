@@ -20,6 +20,7 @@ class CreateProcessinfosTable extends Migration
             $table->string('pattern');                         //花型
             $table->string('density');                   //纬密
             $table->string('width');                           //门幅
+            $table->string('unit');                           //单位
             $table->string('syarntype');                           //纱支
             $table->string('contractno');                      //合同号
             $table->date('diliverydate');                      //交期

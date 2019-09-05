@@ -22,11 +22,11 @@
         {!! Form::open(['url' => '/system/reports/' . $report->id . '/statistics', 'class' => 'pull-right form-inline']) !!}
         <div class="form-group-sm">
             {{-- 根据不同报表设置不同搜索条件 --}}
-            @if ($report->name == "p_frabicdata")
-                {!! Form::label('applydatelabel', '申请日期:', ['class' => 'control-label']) !!}
-                {!! Form::date('bdate', null, ['class' => 'form-control']) !!}
+            @if ($report->name == "pGetOutputData")
+                {!! Form::label('applydatelabel', '出货日期:', ['class' => 'control-label']) !!}
+                {!! Form::date('sdate', $sampdate, ['class' => 'form-control']) !!}
                 {!! Form::label('applydatelabelto', '-', ['class' => 'control-label']) !!}
-                {!! Form::date('edate', null, ['class' => 'form-control']) !!}
+                {!! Form::date('edate', $sampdate, ['class' => 'form-control']) !!}
             @endif
 
             {!! Form::submit('查找(Search)', ['class' => 'btn btn-default btn-sm']) !!}
@@ -35,18 +35,10 @@
     </div>
 
     <?php $hasright = false; ?>
-    @if ($report->name == "so_projectengineeringlist_statistics")
-        @can('system_report_so_projectengineeringlist_statistics')
+    @if ($report->name == "pGetOutputData")
+        {{--@can('system_report_sh_shipment_pvh')--}}
             <?php $hasright = true; ?>
-        @endcan
-    @elseif ($report->name == "so_amountstatistics_forfinancedept")
-        @can('system_report_so_amountstatistics_forfinancedept')
-            <?php $hasright = true; ?>
-        @endcan
-    @elseif ($report->name == "shipment_pvh")
-        @can('system_report_sh_shipment_pvh')
-            <?php $hasright = true; ?>
-        @endcan
+        {{--@endcan--}}
     @else
         @if (Auth::user()->isSuperAdmin())
             <?php $hasright = true; ?>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\System;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -32,54 +33,23 @@ class ReportController extends Controller
     {
         $query = Report::latest('created_at');
         $query->where('module', $module)->where('active', 1);
-        if (!Auth::user()->isSuperAdmin())
-        {
-            $query->where(function ($query) {
-                if (Gate::allows('system_report_so_projectengineeringlist_statistics'))
-                    $query->where('name', 'so_projectengineeringlist_statistics');
-            });
-        }
+//        if (!Auth::user()->isSuperAdmin())
+//        {
+//            $query->where(function ($query) {
+//                if (Gate::allows('system_report_so_projectengineeringlist_statistics'))
+//                    $query->where('name', 'so_projectengineeringlist_statistics');
+//            });
+//        }
 
         $reports = $query->paginate(10);
         $readonly = true;
+
         return view('system.reports.index', compact('reports', 'readonly'));
     }
 
-    public function indexpurchase()
+    public function indexgreyfabricdata()
     {
-//        $reports = Report::latest('created_at')->where('module', '采购')->where('active', 1)->paginate(10);
-        return $this->indexmodule('采购');
-//        $readonly = true;
-//        return view('system.report.index', compact('reports', 'readonly'));
-    }
-
-    public function indexsales()
-    {
-        return $this->indexmodule('销售');
-//        $reports = Report::latest('created_at')->where('module', '销售')->where('active', 1)->paginate(10);
-//        $readonly = true;
-//        return view('system.reports.index', compact('reports', 'readonly'));
-    }
-
-    public function indexinventory()
-    {
-        return $this->indexmodule('库存');
-//        $reports = Report::latest('created_at')->where('module', '库存')->where('active', 1)->paginate(10);
-//        $readonly = true;
-//        return view('system.reports.index', compact('reports', 'readonly'));
-    }
-
-    public function indexapproval()
-    {
-        return $this->indexmodule('审批');
-//        $reports = Report::latest('created_at')->where('module', '审批')->where('active', 1)->paginate(10);
-//        $readonly = true;
-//        return view('system.reports.index', compact('reports', 'readonly'));
-    }
-
-    public function indexfabricdata()
-    {
-        return $this->indexmodule('排料');
+        return $this->indexmodule('坯布');
 //        $reports = Report::latest('created_at')->where('module', '审批')->where('active', 1)->paginate(10);
 //        $readonly = true;
 //        return view('system.reports.index', compact('reports', 'readonly'));
@@ -213,7 +183,8 @@ class ReportController extends Controller
         }
 //        dd($sumvalues_total);
 //        dd($sumcols);
-        return view('system.reports.statisticsindex', compact('items', 'report', 'input', 'titleshows', 'sumcols', 'sumvalues_total'));
+        $sampdate=Carbon::now();
+        return view('system.reports.statisticsindex', compact('items', 'report', 'input', 'titleshows', 'sumcols', 'sumvalues_total','sampdate'));
     }
 
     public function export($id)

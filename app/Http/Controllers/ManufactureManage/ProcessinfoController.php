@@ -43,7 +43,7 @@ class ProcessinfoController extends Controller
         $this->validate($request, [
             'insheetno'        => 'required',
             'density'                   => 'required|integer',
-            'width'                => 'required|integer',
+            'width'                => 'required|numeric',
             'syarntype'      => 'required|',
             'pattern'        => 'required',
             'contractno'        => 'required',

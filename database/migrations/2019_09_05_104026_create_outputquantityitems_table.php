@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuantityreportitemsTable extends Migration
+class CreateOutputquantityitemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,19 @@ class CreateQuantityreportitemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('quantityreportitems', function (Blueprint $table) {
+        Schema::create('outputquantityitems', function (Blueprint $table) {
+            //
             $table->increments('id');
 
-            $table->integer('quantityreporthead_id');                //表头ID
-            $table->string('note');                //备注
+            $table->integer('outputquantityhead_id');                            //表头id
+
+            $table->string('fabricno')->default(1);                         //落布卷号
+            $table->string('machineno');                            //织机号
+            $table->integer('meter');                                 //验布长度
+            $table->string('mass');                                   //质量问题
+            $table->string('remark')->nullable();                                //备注
+
+            $table->string('note');                //班别备注
             $table->string('manufactureshifts');                //班别
             $table->integer('length');                //码长
             $table->integer('totalpoints');                //总罚分
@@ -48,9 +56,9 @@ class CreateQuantityreportitemsTable extends Migration
             $table->integer('bsc')->nullable();                //边纱长
             $table->integer('jb')->nullable();                //浆斑
 
-            $table->foreign('quantityreporthead_id')->references('id')->on('quantityreportheads');
-
             $table->timestamps();
+
+            $table->foreign('outputquantityhead_id')->references('id')->on('outputquantityheads');
         });
     }
 
@@ -61,6 +69,6 @@ class CreateQuantityreportitemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('quantityreportitems');
+        Schema::dropIfExists('outputquantityitems');
     }
 }

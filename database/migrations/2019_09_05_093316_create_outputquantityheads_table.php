@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuantityreportheadsTable extends Migration
+class CreateOutputquantityheadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,25 @@ class CreateQuantityreportheadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('quantityreportheads', function (Blueprint $table) {
+        Schema::create('outputquantityheads', function (Blueprint $table) {
+            //
             $table->increments('id');
 
-            $table->date('djdate');                //登记日期
+            $table->date('outputdate');                       //出货日期
             $table->string('checkno');                //检验工号
-            $table->string('note')->nullable();                //备注
+            $table->string('note')->nullable();                //制造班次备注
             $table->string('manufactureshifts');                //制造班次
-            $table->string('machineno');                //车号
+//            $table->string('machineno');                //车号
             $table->integer('length')->nullable();                //码长
             $table->integer('totalpoints')->nullable();                //总罚分
             $table->decimal('y100points',5,2)->nullable();                //100y总罚分
             $table->string('grade')->nullable()->nullable();                //评级
-            $table->integer('processinfo_id');                //工艺单号
+            $table->integer('processinfo_id');                            //工艺单id
             $table->string('checkshifts');                //检验班次
-            $table->string('createname');                //创建人
+            $table->string('createname');                            //创建人
+
+            $table->string('remark')->nullable();                            //备注
+
             $table->timestamps();
 
             $table->foreign('processinfo_id')->references('id')->on('processinfos');
@@ -41,6 +45,6 @@ class CreateQuantityreportheadsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('quantityreportheads');
+        Schema::dropIfExists('outputquantityheads');
     }
 }

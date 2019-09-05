@@ -59,6 +59,17 @@ Route::group(['prefix' => 'ManufactureManage', 'namespace' => 'ManufactureManage
     Route::resource('Quantityreportitem', 'QuantityreportitemController');
     Route::get('Quantityreportitem/{headId}/create', 'QuantityreportitemController@create');
     Route::get('Quantityreportitem/{headId}/refresh', 'QuantityreportitemController@refresh');
+
+    Route::resource('Outputquantityhead', 'OutputquantityheadController');
+    Route::resource('Outputquantityitem', 'OutputquantityitemController');
+    Route::get('Outputquantityitem/{headId}/create', 'OutputquantityitemController@create');
+    Route::get('Outputquantityitem/{headId}/refresh', 'OutputquantityitemController@refresh');
+
+    Route::group(['prefix' => 'Outputquantityhead/{id}'], function() {
+        Route::get('/detail', 'OutputquantityheadController@detail');
+    });
+
+    Route::get('Report', '\App\Http\Controllers\System\ReportController@indexgreyfabricdata');
 });
 
 Route::group(['prefix' => '', 'namespace' => 'My', 'middleware' => ['web', 'auth']], function() {

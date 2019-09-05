@@ -12,6 +12,7 @@ class Processinfo extends Model
         'pattern',
         'density',
         'width',
+        'unit',
         'syarntype',
         'contractno',
         'diliverydate',
