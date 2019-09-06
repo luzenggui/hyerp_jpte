@@ -30,7 +30,7 @@
         {!! Form::text('syarntype', null, ['class' => 'form-control', $attr]) !!}
     </div>
 
-    {!! Form::label('contractno', '合同号(Contractno):', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
+    {!! Form::label('contractno', '合同号(Contractno)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
         {!! Form::text('contractno', null, ['class' => 'form-control', $attr]) !!}
     </div>

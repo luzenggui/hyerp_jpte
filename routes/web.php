@@ -65,6 +65,8 @@ Route::group(['prefix' => 'ManufactureManage', 'namespace' => 'ManufactureManage
     Route::get('Outputquantityitem/{headId}/create', 'OutputquantityitemController@create');
     Route::get('Outputquantityitem/{headId}/refresh', 'OutputquantityitemController@refresh');
 
+    Route::post('Outputquantityhead/search', 'OutputquantityheadController@search');
+    Route::post('Outputgreyfabric/search', 'OutputquantityheadController@search');
     Route::group(['prefix' => 'Outputquantityhead/{id}'], function() {
         Route::get('/detail', 'OutputquantityheadController@detail');
     });

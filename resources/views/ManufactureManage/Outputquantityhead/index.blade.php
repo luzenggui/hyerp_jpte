@@ -7,6 +7,16 @@
     </div>
 
     <div class="panel-body">
+     {!! Form::open(['url' => '/ManufactureManage/Outputquantityhead/search', 'class' => 'pull-right form-inline', 'id' => 'frmSearch']) !!}
+        <div class="form-group-sm">
+            {!! Form::label('outputstartlabel', 'Date:', ['class' => 'control-label']) !!}
+            {!! Form::date('outputsdate', null, ['class' => 'form-control']) !!}
+            {!! Form::label('outputendlabel', '-', ['class' => 'control-label']) !!}
+            {!! Form::date('outputedate', null, ['class' => 'form-control']) !!}
+
+            {!! Form::submit('Search', ['class' => 'btn btn-default btn-sm']) !!}
+        </div>
+        {!! Form::close() !!}
 
     @if ($outputquantityheads->count())
 
@@ -83,6 +93,7 @@
 
 
     </table>
+            {!! $outputquantityheads->setPath('/ManufactureManage/Outputquantityhead')->appends($inputs)->links() !!}
     @else
     <div class="alert alert-warning alert-block">
         <i class="fa fa-warning"></i>

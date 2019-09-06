@@ -6,6 +6,7 @@ use App\Models\ManufactureManage\Outputquantityhead;
 use App\Models\ManufactureManage\Outputquantityitem;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class OutputquantityheadController extends Controller
 {
@@ -14,11 +15,16 @@ class OutputquantityheadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $outputquantityheads = Outputquantityhead::latest('created_at')->paginate(10);
-        return view('ManufactureManage.Outputquantityhead.index', compact('outputquantityheads'));
+        $inputs = $request->all();
+        $date=Carbon::now();
+//        $outputquantityheads = Outputquantityhead::latest('created_at')
+//                               ->where('outputdate','=',$date)->paginate(10);
+        $outputquantityheads = $this->searchrequest($request)->paginate(10);
+//        dd($outputquantityheads->count());
+        return view('ManufactureManage.Outputquantityhead.index', compact('outputquantityheads','inputs'));
     }
 
     /**
@@ -115,6 +121,96 @@ class OutputquantityheadController extends Controller
     public function show($id)
     {
         //
+    }
+
+    public function search(Request $request)
+    {
+        //
+//        dd($request);
+        $inputs = $request->all();
+
+        $outputquantityheads = $this->searchrequest($request)->paginate(10);
+//        dd($outputquantityheads->count());
+        return view('ManufactureManage.Outputquantityhead.index', compact('outputquantityheads', 'inputs'));
+    }
+
+    private function searchrequest($request)
+    {
+
+        $query = Outputquantityhead::orderBy('outputdate', 'desc');
+
+//        if ($request->has('key') && strlen($request->get('key')) > 0)
+//        {
+//            $key = $request->get('key');
+//
+//            $db_driver = config('database.connections.' . env('DB_CONNECTION', 'mysql') . '.driver');
+//            if ($db_driver == "sqlsrv")
+//                $query->where(function ($query) use ($key) {
+//                    $query->where('customer_name', 'like', '%' . $key . '%')
+//                        ->orWhere('invoice_number', 'like', '%' . $key . '%')
+//                        ->orWhere('contract_number', 'like', '%' . $key . '%')
+//                        ->orWhere('bill_no', 'like', '%' . $key . '%')
+//                        ->orWhere('ship_company', 'like', '%' . $key . '%')
+//                        ->orWhere('customs_no', 'like', '%' . $key . '%');
+//                });
+//            elseif ($db_driver == "pgsql")
+//                $query->where(function ($query) use ($key) {
+//                    $query->where('customer_name', 'ilike', '%' . $key . '%')
+//                        ->orWhere('invoice_number', 'ilike', '%' . $key . '%')
+//                        ->orWhere('contract_number', 'ilike', '%' . $key . '%')
+//                        ->orWhere('bill_no', 'ilike', '%' . $key . '%')
+//                        ->orWhere('ship_company', 'ilike', '%' . $key . '%')
+//                        ->orWhere('customs_no', 'ilike', '%' . $key . '%');
+//                });
+//        }
+
+        if ($request->has('outputsdate') && $request->has('outputedate'))
+        {
+//            $enddate = Carbon::parse($request->input('createdateend'))->addDay();
+            $query->whereRaw('outputdate between \'' . $request->input('outputsdate') . '\' and \'' . $request->input('outputedate') . '\'');
+
+        }
+
+        if (! $request->has('outputsdate') && ! $request->has('outputedate'))
+        {
+//            $enddate = Carbon::parse($request->input('createdateend'))->addDay();
+            $date=Carbon::today()->toDateString();
+//            dd($date);
+            $query->whereRaw('outputdate between \'' . $date . '\' and \'' . $date . '\'');
+
+        }
+//        if ($request->has('etdstart') && $request->has('etdend'))
+//        {
+////            $enddate = Carbon::parse($request->input('etdend'))->addDay();
+//            $query->whereRaw('etd between \'' . $request->input('etdstart') . '\' and \'' . $request->input('etdend') . '\'');
+//
+//        }
+//
+//        if ($request->has('amount_for_customer') && strlen($request->get('amount_for_customer')) > 0)
+//        {
+//            $query->where('amount_for_customer', $request->get('amount_for_customer_opt'), $request->get('amount_for_customer'));
+//        }
+//
+//        if ($request->has('invoice_number_type') && strlen($request->get('invoice_number_type')) > 0)
+//        {
+//            $query->where('invoice_number', 'like', '%' . $request->get('invoice_number_type') . '%');
+//        }
+//
+//        if (Auth::user()->isForwarder())
+//        {
+//            $forwarders = Userforwarder::where('user_id', Auth::user()->id)->pluck('forwarder');
+//            $query->whereIn('forwarder', $forwarders);
+//        }
+
+
+
+        $outputquantityheads = $query->select('*');
+//        dd($outputquantityheads->count());
+
+        // $purchaseorders = Purchaseorder_hxold::whereIn('id', $paymentrequests->pluck('pohead_id'))->get();
+        // dd($purchaseorders->pluck('id'));
+
+        return $outputquantityheads;
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\ManufactureManage;
 use App\Models\ManufactureManage\Outputgreyfabric;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class OutputgreyfabricController extends Controller
 {
@@ -13,11 +14,13 @@ class OutputgreyfabricController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $outputgreyfabrics = Outputgreyfabric::latest('created_at')->paginate(10);
-        return view('ManufactureManage.Outputgreyfabric.index', compact('outputgreyfabrics'));
+//        $outputgreyfabrics = Outputgreyfabric::latest('created_at')->paginate(10);.
+        $inputs = $request->all();
+        $outputgreyfabrics = $this->searchrequest($request)->paginate(10);
+        return view('ManufactureManage.Outputgreyfabric.index', compact('outputgreyfabrics','inputs'));
     }
 
     /**
@@ -61,6 +64,39 @@ class OutputgreyfabricController extends Controller
     public function show($id)
     {
         //
+    }
+
+    public function search(Request $request)
+    {
+        //
+        $inputs = $request->all();
+
+        $outputgreyfabrics = $this->searchrequest($request)->paginate(10);
+        return view('ManufactureManage.Outputgreyfabric.index', compact('outputgreyfabrics', 'inputs'));
+    }
+
+    private function searchrequest($request)
+    {
+
+        $query = Outputgreyfabric::orderBy('outputdate', 'desc');
+
+        if ($request->has('outputsdate') && $request->has('outputedate'))
+        {
+            $query->whereRaw('outputdate between \'' . $request->input('outputsdate') . '\' and \'' . $request->input('outputedate') . '\'');
+
+        }
+
+        if (! $request->has('outputsdate') && ! $request->has('outputedate'))
+        {
+            $date=Carbon::today()->toDateString();
+
+            $query->whereRaw('outputdate between \'' . $date . '\' and \'' . $date . '\'');
+
+        }
+
+        $outputgreyfabricss = $query->select('*');
+
+        return $outputgreyfabricss;
     }
 
     /**
