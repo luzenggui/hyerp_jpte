@@ -18,12 +18,8 @@
     </div>
 
     {!! Form::label('width', '门幅(Width)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
-    <div class='col-xs-3 col-sm-3'>
+    <div class='col-xs-4 col-sm-4'>
         {!! Form::text('width', null, ['class' => 'form-control', $attr]) !!}
-    </div>
-
-    <div class='col-xs-1 col-sm-1'>
-        {!! Form::select('unit', array('M'=>'M','YD'=>'YD'),null, ['class' => 'form-control', $attr]) !!}
     </div>
 </div>
 
@@ -48,8 +44,12 @@
     </div>
 
     {!! Form::label('orderquantity', '合同数量(Orderquantity)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
-    <div class='col-xs-4 col-sm-4'>
+    <div class='col-xs-3 col-sm-3'>
         {!! Form::text('orderquantity', null, ['class' => 'form-control', $attr]) !!}
+    </div>
+
+    <div class='col-xs-1 col-sm-1'>
+        {!! Form::select('unit', array('M'=>'M','YD'=>'YD'),null, ['class' => 'form-control', $attr]) !!}
     </div>
 </div>
 

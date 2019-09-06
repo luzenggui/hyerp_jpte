@@ -83,6 +83,7 @@
 
 
     </table>
+            {!! $quantityreportheads->setPath('/ManufactureManage/Quantityreporthead')->links() !!}
     @else
     <div class="alert alert-warning alert-block">
         <i class="fa fa-warning"></i>

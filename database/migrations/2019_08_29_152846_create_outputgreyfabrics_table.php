@@ -22,8 +22,8 @@ class CreateOutputgreyfabricsTable extends Migration
             $table->string('createname');                            //创建人
             $table->integer('segmentqty');                            //段数
             $table->integer('qtyinspected');                            //验布长度
-            $table->char('ifcomplete',2)->nullabel();                            //是否了机
-            $table->string('note')->nullabel();                            //备注
+            $table->char('ifcomplete',2)->nullable();                            //是否了机
+            $table->string('note')->nullable();                            //备注
 
             $table->timestamps();
 
