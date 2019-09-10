@@ -39,12 +39,16 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::group(['prefix' => 'ManufactureManage', 'namespace' => 'ManufactureManage', 'middleware' => ['web', 'auth']], function() {
     Route::resource('Processinfos', 'ProcessinfoController');
-
+    Route::post('Processinfos/search', 'ProcessinfoController@search');
     Route::group(['prefix' => 'Processinfos'], function() {
         Route::get('getitemsbyprocesskey/{key}', 'ProcessinfoController@getitemsbyprocesskey');
     });
 
     Route::resource('Outputgreyfabric', 'OutputgreyfabricController');
+    Route::post('Outputgreyfabric/search', 'OutputquantityheadController@search');
+
+    Route::resource('Outputquantity', 'OutputquantityController');
+    Route::post('Outputquantity/search', 'OutputquantityController@search');
 
     Route::resource('Outputheads', 'OutputheadController');
     Route::resource('Outputitems', 'OutputitemController');
@@ -66,13 +70,15 @@ Route::group(['prefix' => 'ManufactureManage', 'namespace' => 'ManufactureManage
     Route::get('Outputquantityitem/{headId}/refresh', 'OutputquantityitemController@refresh');
 
     Route::post('Outputquantityhead/search', 'OutputquantityheadController@search');
-    Route::post('Outputgreyfabric/search', 'OutputquantityheadController@search');
+
     Route::group(['prefix' => 'Outputquantityhead/{id}'], function() {
         Route::get('/detail', 'OutputquantityheadController@detail');
     });
 
     Route::get('Report', '\App\Http\Controllers\System\ReportController@indexgreyfabricdata');
 });
+
+Route::get('gitpullbybat', function() { return view('gitpullbybat'); });
 
 Route::group(['prefix' => '', 'namespace' => 'My', 'middleware' => ['web', 'auth']], function() {
 });

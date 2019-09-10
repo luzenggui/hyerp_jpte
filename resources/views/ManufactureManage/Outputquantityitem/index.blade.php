@@ -14,6 +14,7 @@
     <table class="table table-striped table-hover table-condensed">
         <thead>
             <tr>
+                <th>Fabric</th>
                 <th>Fabricno</th>
                 <th>Machineno</th>
                 <th>Meter</th>
@@ -34,6 +35,7 @@
         <tbody>
             @foreach($outputquantityitems as $outputquantityitem)
                 <tr>
+
                     <td>
                         {{$outputquantityitem->fabricno}}
                     </td>

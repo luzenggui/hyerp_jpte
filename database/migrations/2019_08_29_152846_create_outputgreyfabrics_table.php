@@ -23,7 +23,7 @@ class CreateOutputgreyfabricsTable extends Migration
             $table->integer('segmentqty');                            //段数
             $table->integer('qtyinspected');                            //验布长度
             $table->char('ifcomplete',2)->nullable();                            //是否了机
-            $table->string('note')->nullable();                            //备注
+            $table->integer('qtyoutput')->nullable();                            //出货长度
 
             $table->timestamps();
 

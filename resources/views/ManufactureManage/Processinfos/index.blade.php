@@ -7,6 +7,12 @@
     </div>
 
     <div class="panel-body">
+        {!! Form::open(['url' => '/ManufactureManage/Processinfos/search', 'class' => 'pull-right form-inline', 'id' => 'frmSearch']) !!}
+        <div class="form-group-sm">
+            {!! Form::text('key', null, ['class' => 'form-control', 'placeholder' => 'Fabirc/Contract No/Pattern','id'=>'key']) !!}
+            {!! Form::submit('Search', ['class' => 'btn btn-default btn-sm']) !!}
+        </div>
+        {!! Form::close() !!}
         @if ($processinfos->count())
 
             <table class="table table-striped table-hover table-condensed">
@@ -69,7 +75,8 @@
                     @endforeach
                 </tbody>
             </table>
-                {!! $processinfos->links() !!}
+
+                {!! $processinfos->setPath('/ManufactureManage/Processinfos')->appends($inputs)->links() !!}
             @else
             <div class="alert alert-warning alert-block">
                 <i class="fa fa-warning"></i>
@@ -80,3 +87,11 @@
 
 @stop
 
+@section('script')
+<script type="text/javascript">
+    jQuery(document).ready(function(e) {
+        // alert('aa');
+        $("#key").val("");
+    });
+  </script>
+@endsection

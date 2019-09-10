@@ -67,9 +67,9 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('note', '备注(Note)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
+    {!! Form::label('qtyoutput', '出货长度(Qtyoutput)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
-        {!! Form::text('note', null, ['class' => 'form-control', $attr]) !!}
+        {!! Form::text('qtyoutput', null, ['class' => 'form-control', $attr]) !!}
     </div>
 
     {!! Form::label('createname', '创建人(Createname)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}

@@ -13,11 +13,12 @@ class ProcessinfoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        $inputs=$request->all();
         $processinfos = Processinfo::latest('created_at')->paginate(10);
-        return view('ManufactureManage.Processinfos.index', compact('processinfos'));
+        return view('ManufactureManage.Processinfos.index', compact('processinfos','inputs'));
     }
 
     /**
@@ -57,6 +58,23 @@ class ProcessinfoController extends Controller
         Processinfo::create($input);
         return redirect('ManufactureManage/Processinfos');
     }
+
+    public function search(Request $request)
+    {
+        //
+        $query = Processinfo::orderBy('id', 'desc');
+        $key = $request->input('key');
+        $inputs=$request->all();
+        if (strlen($key) > 0)
+        {
+            $query->where('insheetno', 'like', '%'.$key.'%')
+                ->orWhere('contractno', 'like', '%'.$key.'%')
+                ->orWhere('pattern', 'like', '%'.$key.'%');
+        }
+        $processinfos = $query->paginate(10);
+        return view('ManufactureManage.Processinfos.index', compact('processinfos', 'inputs'));
+    }
+
 
     /**
      * Display a listing of the resource by searching processinfo key.

@@ -3,12 +3,13 @@
 
         $('#selectProcessinfoModal').on('show.bs.modal', function (e) {
             $("#listprocessinfos").empty();
-
+            $("#keyProcess").focus();
             var text = $(e.relatedTarget);
             var modal = $(this);
         });
 
         $('#selectProcessinfoModal').on('shown.bs.modal', function (e) {
+            $("#keyProcess").focus();
             var text = $(e.relatedTarget);
             var modal = $(this);
 
@@ -85,5 +86,11 @@
                 $("#orderquantity").val(field.orderquantity);
             });
         }
+
+        $("#keyProcess").keydown(function(){
+            if(event.keyCode == 13) {
+                $("#btnSearchProcessinfo").click();
+            }
+        });
     });
 </script>

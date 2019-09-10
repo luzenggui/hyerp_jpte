@@ -1,14 +1,13 @@
 @extends('navbarerp')
-@section('title', '坯布出货信息')
+@section('title', '坯布生产质量信息')
 @section('main')
 
     <div class="panel-heading">
-        <a href="Outputgreyfabric/create" class="btn btn-sm btn-success">新建(New)</a>
+        <a href="Outputquantity/create" class="btn btn-sm btn-success">新建(New)</a>
     </div>
 
-    <div class="panel-body">
-
-            {!! Form::open(['url' => '/ManufactureManage/Outputgreyfabric/search', 'class' => 'pull-right form-inline', 'id' => 'frmSearch']) !!}
+        <div class="panel-body">
+            {!! Form::open(['url' => '/ManufactureManage/Outputquantity/search', 'class' => 'pull-right form-inline', 'id' => 'frmSearch']) !!}
             <div class="form-group-sm">
                 {!! Form::label('outputstartlabel', 'Date:', ['class' => 'control-label']) !!}
                 {!! Form::date('outputsdate', null, ['class' => 'form-control']) !!}
@@ -19,52 +18,60 @@
             </div>
             {!! Form::close() !!}
 
-        @if ($outputgreyfabrics->count())
+        @if ($outputquantitys->count())
 
             <table class="table table-striped table-hover table-condensed">
                 <thead>
                     <tr>
                         <th>Date</th>
-                        <th>Planedshipdate</th>
-                        <th>Pattern</th>
                         <th>Fabric</th>
-                        <th>PlannedQTY</th>
-                        <th>SegmentQTY</th>
-                        <th>QTYinspected</th>
-                        <th>QTYoutput</th>
+                        <th>FabricNo</th>
+                        <th>Machineno</th>
+                        <th>Meter</th>
+                        <th>Manufactureshifts</th>
+                        <th>Length</th>
+                        <th>Totalpoints</th>
+                        <th>100ypoints</th>
+                        <th>grade</th>
                         <th>Operation</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($outputgreyfabrics as $outputgreyfabric)
+                    @foreach($outputquantitys as $outputquantity)
                         <tr>
                             <td>
-                                {{$outputgreyfabric->outputdate}}
+                                {{$outputquantity->outputdate}}
                             </td>
                             <td>
-                                {{ $outputgreyfabric->processinfo->diliverydate }}
+                                {{ $outputquantity->processinfo->insheetno }}
                             </td>
                             <td>
-                                {{ $outputgreyfabric->processinfo->pattern }}
+                                {{ $outputquantity->fabricno }}
                             </td>
                             <td>
-                                {{ $outputgreyfabric->processinfo->insheetno }}
+                                {{ $outputquantity->machineno }}
                             </td>
                             <td>
-                                {{ $outputgreyfabric->processinfo->orderquantity }}
+                                {{ $outputquantity->meter }}
                             </td>
                             <td>
-                                {{ $outputgreyfabric->segmentqty }}
+                                {{ $outputquantity->manufactureshifts }}
                             </td>
                             <td>
-                                {{ $outputgreyfabric->qtyinspected }}
+                                {{ $outputquantity->length }}
                             </td>
                             <td>
-                                {{ $outputgreyfabric->qtyoutput }}
+                                {{ $outputquantity->totalpoints }}
                             </td>
                             <td>
-                                <a href="{{ URL::to('/ManufactureManage/Outputgreyfabric/'.$outputgreyfabric->id.'/edit') }}" class="btn btn-success btn-sm pull-left">Edit</a>
-                                {!! Form::open(array('route' => array('Outputgreyfabric.destroy', $outputgreyfabric->id), 'method' => 'delete', 'onsubmit' => 'return confirm("确定删除此记录(Confirm to delete this record)?");')) !!}
+                                {{ $outputquantity->y100points }}
+                            </td>
+                            <td>
+                                {{ $outputquantity->grade }}
+                            </td>
+                            <td>
+                                <a href="{{ URL::to('/ManufactureManage/Outputquantity/'.$outputquantity->id .'/edit') }}" class="btn btn-success btn-sm pull-left">Edit</a>
+                                {!! Form::open(array('route' => array('Outputquantity.destroy', $outputquantity->id), 'method' => 'delete', 'onsubmit' => 'return confirm("确定删除此记录(Confirm to delete this record)?");')) !!}
                                     {!! Form::submit('Del', ['class' => 'btn btn-danger btn-sm pull-left']) !!}
                                 {!! Form::close() !!}
                                 {{--<a href="{{ URL::to('/development/fabricdischarges/'.$fabricdischarge->id . '/export') }}" class="btn btn-success btn-sm pull-left">导出</a>--}}
@@ -75,7 +82,8 @@
 
 
             </table>
-                {!! $outputgreyfabrics->setPath('/ManufactureManage/Outputgreyfabric')->appends($inputs)->links() !!}
+                {!! $outputquantitys->setPath('/ManufactureManage/Outputquantity')->appends($inputs)->links() !!}
+
             @else
             <div class="alert alert-warning alert-block">
                 <i class="fa fa-warning"></i>
@@ -83,6 +91,10 @@
             </div>
             @endif
     </div>
-
+    @include('ManufactureManage.Processinfos._selectprocessinfomodal')
 @stop
 
+@section('script')
+    @include('ManufactureManage.Processinfos._selectprocessinfojs')
+
+@endsection
