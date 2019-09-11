@@ -289,8 +289,18 @@
 </div>
 
 <div class="form-group">
-    <div class="col-sm-offset-1 col-sm-10">
-        {!! Form::submit($submitButtonText, ['class' => $btnclass, 'id' => 'btnSubmit']) !!}
-    </div>
+    @if($formtype=='new')
+        <div class="col-sm-offset-1 col-sm-1 pull-left">
+            {!! Form::button($submitButtonText1, ['class' => $btnclass, 'id' => 'btnSubmit1']) !!}
+        </div>
+
+        <div class="col-sm-offset-1 col-sm-1 pull-right">
+            <a href="{{ url('/ManufactureManage/Outputquantity/create') }}"  class="btn btn-success btn-sm">新建(New)</a>
+        </div>
+    @elseif($formtype=='update')
+        <div class="col-sm-offset-1 col-sm-1 pull-left">
+            {!! Form::submit($submitButtonText1, ['class' => $btnclass, 'id' => 'btnSubmit1']) !!}
+        </div>
+    @endif
 </div>
 

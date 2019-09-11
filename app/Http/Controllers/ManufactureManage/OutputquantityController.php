@@ -53,9 +53,8 @@ class OutputquantityController extends Controller
         ]);
 
         $input = $request->all();
-        Outputquantity::create($input);
-        return redirect('ManufactureManage/Outputquantity/create');
-//        return redirect('ManufactureManage/Outputgreyfabric');
+        $outputquantity=Outputquantity::create($input);
+        return json_encode($outputquantity);
     }
 
     /**

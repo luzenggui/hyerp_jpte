@@ -49,7 +49,7 @@
     </div>
 
     <div class='col-xs-1 col-sm-1'>
-        {!! Form::select('unit', array('M'=>'M','YD'=>'YD'),null, ['class' => 'form-control', $attr]) !!}
+        {!! Form::select('unit', array('YD'=>'YD','M'=>'M'),null, ['class' => 'form-control', $attr]) !!}
     </div>
 </div>
 

@@ -7,9 +7,10 @@
     {!! Form::model($outputquantity, ['method' => 'PATCH', 'action' => ['ManufactureManage\OutputquantityController@update', $outputquantity->id], 'class' => 'form-horizontal']) !!}
         @include('ManufactureManage.Outputquantity._form',
         [
-            'submitButtonText' => 'Save',
+            'submitButtonText1' => 'Save',
             'attr' => '',
             'btnclass' => 'btn btn-primary',
+            'formtype'=>'update',
         ])
     {!! Form::close() !!}
     
@@ -23,7 +24,7 @@
         jQuery(document).ready(function(e) {
 
             $("#length").blur(function () {
-                if ($("#length").val() > 0.0 && $("#totalpoints").val() > 0.0) {
+                if ($("#length").val() > 0.0 && $("#totalpoints").val() >= 0.0) {
                     var v_100ypoint = ($("#totalpoints").val() / $("#length").val()) * 100;
                     var v_100ypoints = v_100ypoint.toFixed(2);
                     var v_grade;
@@ -40,34 +41,15 @@
                     $("#grade").val(v_grade);
                 }
             });
-            $("#totalpoints").blur(function () {
-                if ($("#length").val() > 0.0 && $("#totalpoints").val() > 0.0) {
-                    var v_100ypoint = ($("#totalpoints").val() / $("#length").val()) * 100;
-                    var v_100ypoints = v_100ypoint.toFixed(2);
-                    var v_grade;
-
-
-                    if (v_100ypoints >= 0.00 && v_100ypoints < 24.00) {
-                        v_grade = 'A';
-                    } else if (v_100ypoints >= 24.00 && v_100ypoints < 36.00) {
-                        v_grade = 'B';
-                    } else {
-                        v_grade = 'C';
-                    }
-
-                    $("#y100points").val(v_100ypoints);
-                    $("#grade").val(v_grade);
-                }
-            });
             $("form input[id^='cd']").blur(function () {
                 var v_totalpoints=0.0;
                 $("form input[id^='cd']").each(function(){
-                    if($(this).val()>0.0)
+                    if($(this).val()>0.0 && !isNaN($(this).val()))
                         v_totalpoints += parseFloat($(this).val());
                 })
                 $("#totalpoints").val(v_totalpoints);
 
-                if ($("#length").val() > 0.0 && $("#totalpoints").val() > 0.0) {
+                if ($("#length").val() > 0.0 && $("#totalpoints").val() >= 0.0) {
                     var v_100ypoint = ($("#totalpoints").val() / $("#length").val()) * 100;
                     var v_100ypoints = v_100ypoint.toFixed(2);
                     var v_grade;
