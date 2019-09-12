@@ -3,7 +3,7 @@
 @section('main')
 
     <div class="panel-heading">
-        <a href="Outputquantity/create" class="btn btn-sm btn-success">新建(New)</a>
+        <a href="/ManufactureManage/Outputquantity/create" class="btn btn-sm btn-success">新建(New)</a>
     </div>
 
         <div class="panel-body">
@@ -71,7 +71,7 @@
                             </td>
                             <td>
                                 <a href="{{ URL::to('/ManufactureManage/Outputquantity/'.$outputquantity->id .'/edit') }}" class="btn btn-success btn-sm pull-left">Edit</a>
-                                {!! Form::open(array('route' => array('Outputquantity.destroy', $outputquantity->id), 'method' => 'delete', 'onsubmit' => 'return confirm("确定删除此记录(Confirm to delete this record)?");')) !!}
+                                {!! Form::open(array('route' => array('Outputquantity.destroy', $outputquantity->id), 'method' => 'delete', 'onsubmit' => 'return confirm("确定删除此记录(Confirm to delete this record)?")')) !!}
                                     {!! Form::submit('Del', ['class' => 'btn btn-danger btn-sm pull-left']) !!}
                                 {!! Form::close() !!}
                                 {{--<a href="{{ URL::to('/development/fabricdischarges/'.$fabricdischarge->id . '/export') }}" class="btn btn-success btn-sm pull-left">导出</a>--}}

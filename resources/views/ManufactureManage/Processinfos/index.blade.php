@@ -3,7 +3,7 @@
 @section('main')
 
     <div class="panel-heading">
-        <a href="Processinfos/create" class="btn btn-sm btn-success">新建(New)</a>
+        <a href="/ManufactureManage/Processinfos/create" class="btn btn-sm btn-success">新建(New)</a>
     </div>
 
     <div class="panel-body">

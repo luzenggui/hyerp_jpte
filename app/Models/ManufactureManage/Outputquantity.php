@@ -9,6 +9,7 @@ class Outputquantity extends Model
     //
     protected $fillable = [
         'outputdate',
+        'number',
         'checkno',
         'manufactureshifts',
         'processinfo_id',

@@ -32,6 +32,14 @@ class ProcessinfoController extends Controller
         return view('ManufactureManage.Processinfos.create');
     }
 
+    public function messages()
+    {
+        return [
+            'insheetno.unique' => 'Fabric must be unique',
+            'insheetno.required'  => 'Fabric is required',
+        ];
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -42,7 +50,7 @@ class ProcessinfoController extends Controller
     {
         //
         $this->validate($request, [
-            'insheetno'        => 'required',
+            'insheetno'        => 'required|unique:processinfos',
             'density'                   => 'required|integer',
             'width'                => 'required|numeric',
             'syarntype'      => 'required|',
@@ -51,7 +59,8 @@ class ProcessinfoController extends Controller
             'diliverydate'        => 'required',
             'specification'        => 'required',
             'orderquantity'        => 'required|integer',
-        ]);
+        ],array('insheetno.unique' => 'Fabric must be unique',
+            'insheetno.required'  => 'Fabric is required',));
 
         $input = $request->all();
 //        dd($input);

@@ -17,6 +17,7 @@ class CreateOutputquantitiesTable extends Migration
             $table->increments('id');
 
             $table->date('outputdate');                       //出货日期
+            $table->string('number');                       //序号
             $table->string('checkno');                //检验工号
             $table->string('manufactureshifts');                //制造班次
             $table->integer('processinfo_id');                            //工艺单id
