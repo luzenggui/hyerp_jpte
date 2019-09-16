@@ -45,7 +45,8 @@ Route::group(['prefix' => 'ManufactureManage', 'namespace' => 'ManufactureManage
     });
 
     Route::resource('Outputgreyfabric', 'OutputgreyfabricController');
-    Route::post('Outputgreyfabric/search', 'OutputquantityheadController@search');
+    Route::post('Outputgreyfabric/search', 'OutputgreyfabricController@search');
+    Route::get('Outputgreyfabric/create/summeter', 'OutputgreyfabricController@summeter');
 
     Route::resource('Outputquantity', 'OutputquantityController');
     Route::post('Outputquantity/search', 'OutputquantityController@search');

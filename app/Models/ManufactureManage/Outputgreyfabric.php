@@ -14,7 +14,7 @@ class Outputgreyfabric extends Model
         'qtyinspected',
         'ifcomplete',
         'createname',
-        'note',
+        'qtyoutput',
     ];
 
     public function processinfo() {

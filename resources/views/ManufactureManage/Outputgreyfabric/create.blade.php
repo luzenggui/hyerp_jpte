@@ -21,5 +21,31 @@
 @stop
 
 @section('script')
+
+    <script type="text/javascript">
+        jQuery(document).ready(function(e) {
+            $("#segmentqty").blur(function() {
+                // $("#qtyinspected").val(1);
+                // console.log('aa1');
+                $.ajax({
+                    type: "GET",
+                    url: "{{url('ManufactureManage/Outputgreyfabric/create/summeter')}}",
+                    data: {
+                        "processinfo_id" : $("#processinfo_id").val(),
+                        "outputdate" : $("#outputdate").val(),
+                    },
+                    dataType: "json",
+                    error: function (xhr, ajaxOptions, thrownError) {
+
+                        alert('error');
+                    },
+                    success: function (result) {
+                        // alert(result);
+                        $("#qtyinspected").val(result);
+                    },
+                });
+            });
+        });
+    </script>
     @include('ManufactureManage.Processinfos._selectprocessinfojs');
 @endsection

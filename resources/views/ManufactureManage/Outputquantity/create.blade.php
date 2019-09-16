@@ -89,13 +89,13 @@
                     data: $("form#frmAddprd_quan").serialize(),
                     dataType: "json",
                     error: function (xhr, ajaxOptions, thrownError) {
-                        alert(thrownError.substring(0, 20));
+                        alert(thrownError.substring(0, 10));
                     },
                     success: function (result) {
                         $v_manufactureshift = $("#manufactureshifts").val();
                         alert("The data for Class " + $v_manufactureshift + " saves successfully!");
                         $("form input[id^='cd']").val("");
-                        $("#note").val("");
+                        // $("#note").val("");
                         $("#length").val("");
                         $("#totalpoints").val("");
                         $("#y100points").val("");

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\ManufactureManage;
 
 use App\Models\ManufactureManage\Outputgreyfabric;
+use App\Models\ManufactureManage\Outputquantity;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
+use Log;
 
 class OutputgreyfabricController extends Controller
 {
@@ -32,6 +34,21 @@ class OutputgreyfabricController extends Controller
     {
         //
         return view('ManufactureManage.Outputgreyfabric.create');
+    }
+
+    public function summeter(Request $request)
+    {
+        //
+//        dd('1111');
+//        Log::info('aaa');
+        $query=Outputquantity::where('processinfo_id','=',$request->get('processinfo_id'));
+        $query->where('outputdate','=',$request->get('outputdate'));
+
+        $summeter=$query->sum('meter');
+//        if($query->sum('meter')>0.0)
+            return json_encode($summeter);
+//        else
+//            return json_encode(0);
     }
 
     /**
@@ -111,6 +128,7 @@ class OutputgreyfabricController extends Controller
         $outputgreyfabric = Outputgreyfabric::findOrFail($id);
         return view('ManufactureManage.Outputgreyfabric.edit', compact('outputgreyfabric'));
     }
+
 
     /**
      * Update the specified resource in storage.

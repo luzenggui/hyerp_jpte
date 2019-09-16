@@ -1,7 +1,11 @@
 <div class="form-group">
-    {!! Form::label('outputdate', '日期(Date)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
+    {!! Form::label('orderquantity', '合同数量(Orderquantity)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
-        {!! Form::date('outputdate',isset($outputdate) ? $outputdate:null, ['class' => 'form-control', $attr]) !!}
+        @if(isset($outputquantity))
+            {!! Form::text('orderquantity', $outputquantity->processinfo->orderquantity, ['class' => 'form-control','readonly', $attr]) !!}
+        @else
+            {!! Form::text('orderquantity', null, ['class' => 'form-control', 'readonly', $attr]) !!}
+        @endif
     </div>
 
     {!! Form::label('number', '序号(Number)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
@@ -33,14 +37,11 @@
         {!! Form::hidden('processinfo_id', null, ['id' => 'processinfo_id']) !!}
     </div>
 
-    {!! Form::label('orderquantity', '合同数量(Orderquantity)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
+    {!! Form::label('outputdate', '日期(Date)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
-        @if(isset($outputquantity))
-            {!! Form::text('orderquantity', $outputquantity->processinfo->orderquantity, ['class' => 'form-control','readonly', $attr]) !!}
-        @else
-            {!! Form::text('orderquantity', null, ['class' => 'form-control', 'readonly', $attr]) !!}
-        @endif
+        {!! Form::date('outputdate',isset($outputdate) ? $outputdate:null, ['class' => 'form-control', $attr]) !!}
     </div>
+
 </div>
 
 
