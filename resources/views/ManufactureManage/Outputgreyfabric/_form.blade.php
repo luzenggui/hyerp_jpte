@@ -1,18 +1,20 @@
 <div class="form-group">
+    {!! Form::label('insheetno', '厂编号(Fabric)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
+    <div class='col-xs-4 col-sm-4'>
+        @if(isset($outputgreyfabric))
+            {!! Form::text('insheetno', $outputgreyfabric->processinfo->insheetno, ['class' => 'form-control', $attr,'data-toggle' => 'modal', 'data-target' => '#selectProcessinfoModal']) !!}
+        @else
+            {!! Form::text('insheetno', null, ['class' => 'form-control', $attr,'data-toggle' => 'modal', 'data-target' => '#selectProcessinfoModal']) !!}
+        @endif
+        {!! Form::hidden('processinfo_id', null, ['id' => 'processinfo_id']) !!}
+    </div>
 
     {!! Form::label('outputdate', '出货日期(Outputdate)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
         {!! Form::date('outputdate', isset($outputdate) ? $outputdate:null, ['class' => 'form-control', $attr]) !!}
     </div>
 
-    {!! Form::label('diliverydate', '交期(Plannedshipdate)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
-    <div class='col-xs-4 col-sm-4'>
-        @if(isset($outputgreyfabric))
-            {!! Form::date('diliverydate', $outputgreyfabric->processinfo->diliverydate, ['class' => 'form-control','readonly', $attr]) !!}
-        @else
-            {!! Form::date('diliverydate', null, ['class' => 'form-control', 'readonly', $attr]) !!}
-        @endif
-    </div>
+
 </div>
 
 <div class="form-group">
@@ -25,14 +27,13 @@
         @endif
     </div>
 
-    {!! Form::label('insheetno', '厂编号(Fabric)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
+    {!! Form::label('diliverydate', '交期(Plannedshipdate)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
         @if(isset($outputgreyfabric))
-            {!! Form::text('insheetno', $outputgreyfabric->processinfo->insheetno, ['class' => 'form-control', $attr,'data-toggle' => 'modal', 'data-target' => '#selectProcessinfoModal']) !!}
+            {!! Form::date('diliverydate', $outputgreyfabric->processinfo->diliverydate, ['class' => 'form-control','readonly', $attr]) !!}
         @else
-            {!! Form::text('insheetno', null, ['class' => 'form-control', $attr,'data-toggle' => 'modal', 'data-target' => '#selectProcessinfoModal']) !!}
+            {!! Form::date('diliverydate', null, ['class' => 'form-control', 'readonly', $attr]) !!}
         @endif
-        {!! Form::hidden('processinfo_id', null, ['id' => 'processinfo_id']) !!}
     </div>
 </div>
 

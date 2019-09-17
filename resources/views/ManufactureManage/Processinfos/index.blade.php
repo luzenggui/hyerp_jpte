@@ -65,6 +65,7 @@
                                 {{ $processinfo->created_at }}
                             </td>
                             <td>
+                                <a href="{{ URL::to('/ManufactureManage/Processinfos/'.$processinfo->id.'/copy') }}" class="btn btn-warning btn-sm pull-left">Copy</a>
                                 <a href="{{ URL::to('/ManufactureManage/Processinfos/'.$processinfo->id.'/edit') }}" class="btn btn-success btn-sm pull-left">Edit</a>
                                 {!! Form::open(array('route' => array('Processinfos.destroy', $processinfo->id), 'method' => 'delete', 'onsubmit' => 'return confirm("确定删除此记录(Confirm to delete this record)?");')) !!}
                                     {!! Form::submit('Del', ['class' => 'btn btn-danger btn-sm pull-left']) !!}

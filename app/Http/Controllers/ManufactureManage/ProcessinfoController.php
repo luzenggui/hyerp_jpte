@@ -84,6 +84,15 @@ class ProcessinfoController extends Controller
         return view('ManufactureManage.Processinfos.index', compact('processinfos', 'inputs'));
     }
 
+    public function copy($id)
+    {
+        //
+        $processinfo = Processinfo::findOrFail($id);
+//        dd($processinfo);
+        return view('ManufactureManage.Processinfos.create', compact('processinfo'));
+    }
+
+
 
     /**
      * Display a listing of the resource by searching processinfo key.

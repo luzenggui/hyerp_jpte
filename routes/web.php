@@ -42,6 +42,7 @@ Route::group(['prefix' => 'ManufactureManage', 'namespace' => 'ManufactureManage
     Route::post('Processinfos/search', 'ProcessinfoController@search');
     Route::group(['prefix' => 'Processinfos'], function() {
         Route::get('getitemsbyprocesskey/{key}', 'ProcessinfoController@getitemsbyprocesskey');
+        Route::get('{id}/copy', 'ProcessinfoController@copy');
     });
 
     Route::resource('Outputgreyfabric', 'OutputgreyfabricController');
