@@ -10,7 +10,6 @@
                     'submitButtonText' => '添加(Add)',
                     'attr' => '',
                     'btnclass' => 'btn btn-primary',
-                    'diliverydate'=>date('Y-m-d'),
                 ])
         {!! Form::close() !!}
     @else
