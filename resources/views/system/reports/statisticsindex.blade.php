@@ -22,7 +22,7 @@
         {!! Form::open(['url' => '/system/reports/' . $report->id . '/statistics', 'class' => 'pull-right form-inline']) !!}
         <div class="form-group-sm">
             {{-- 根据不同报表设置不同搜索条件 --}}
-            @if ($report->name == "pGetOutputData")
+            @if ($report->name == "pGetOutputData" || $report->name == "pGetProductionData" || $report->name == "pGetQuantityData")
                 {!! Form::label('applydatelabel', '出货日期:', ['class' => 'control-label']) !!}
                 {!! Form::date('sdate', $sampdate, ['class' => 'form-control']) !!}
                 {!! Form::label('applydatelabelto', '-', ['class' => 'control-label']) !!}
