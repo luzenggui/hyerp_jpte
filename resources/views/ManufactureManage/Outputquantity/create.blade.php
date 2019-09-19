@@ -89,7 +89,7 @@
                     data: $("form#frmAddprd_quan").serialize(),
                     dataType: "json",
                     error: function (xhr, ajaxOptions, thrownError) {
-                        alert(thrownError.substring(0, 10));
+                        alert(thrownError.substring(0, 10));       
                     },
                     success: function (result) {
                         $v_manufactureshift = $("#manufactureshifts").val();
