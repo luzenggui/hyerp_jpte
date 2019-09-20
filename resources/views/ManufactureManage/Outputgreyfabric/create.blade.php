@@ -17,7 +17,7 @@
 
     
     @include('errors.list')
-    @include('ManufactureManage.Processinfos._selectprocessinfomodal');
+    @include('ManufactureManage.Processinfos._selectprocessinfomodal')
 @stop
 
 @section('script')

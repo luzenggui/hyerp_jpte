@@ -33,6 +33,7 @@
                         <th>Totalpoints</th>
                         <th>100ypoints</th>
                         <th>grade</th>
+                        <th>Number</th>
                         <th>Operation</th>
                     </tr>
                 </thead>
@@ -68,6 +69,9 @@
                             </td>
                             <td>
                                 {{ $outputquantity->grade }}
+                            </td>
+                            <td>
+                                {{ $outputquantity->number }}
                             </td>
                             <td>
                                 <a href="{{ URL::to('/ManufactureManage/Outputquantity/'.$outputquantity->id .'/edit') }}" class="btn btn-success btn-sm pull-left">Edit</a>

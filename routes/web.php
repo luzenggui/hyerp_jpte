@@ -51,6 +51,7 @@ Route::group(['prefix' => 'ManufactureManage', 'namespace' => 'ManufactureManage
 
     Route::resource('Outputquantity', 'OutputquantityController');
     Route::post('Outputquantity/search', 'OutputquantityController@search');
+    Route::post('Outputquantity/storenew', 'OutputquantityController@storenew');
 
     Route::resource('Outputheads', 'OutputheadController');
     Route::resource('Outputitems', 'OutputitemController');

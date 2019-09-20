@@ -9,7 +9,9 @@
             [
                 'submitButtonText1' => '添加班次(Add Shifts)',
                 'attr' => '',
+                'submitButtonText2'=>'保存(Add)',
                 'btnclass' => 'btn btn-primary',
+                'btnclass2' => 'btn btn-success btn-sm',
                 'outputdate'=>date('Y-m-d'),
                 'createname'=>Auth()->user()->name,
                 'fabricno'=>1,
@@ -19,7 +21,7 @@
 
     
     @include('errors.list')
-    @include('ManufactureManage.Processinfos._selectprocessinfomodal');
+    @include('ManufactureManage.Processinfos._selectprocessinfomodal')
 @stop
 
 @section('script')
@@ -85,7 +87,7 @@
             $("#btnSubmit1").click(function () {
                 $.ajax({
                     type: "POST",
-                    url: "{{url('/ManufactureManage/Outputquantity/')}}",
+                    url: "{{url('/ManufactureManage/Outputquantity/storenew')}}",
                     data: $("form#frmAddprd_quan").serialize(),
                     dataType: "json",
                     error: function (xhr, ajaxOptions, thrownError) {
@@ -104,7 +106,21 @@
                     },
                 });
             });
-
+            {{--$("#btnSubmit2").click(function () {--}}
+                {{--$.ajax({--}}
+                    {{--type: "POST",--}}
+                    {{--url: "{{url('/ManufactureManage/Outputquantity/')}}",--}}
+                    {{--data: $("form#frmAddprd_quan").serialize(),--}}
+                    {{--dataType: "json",--}}
+                    {{--error: function (xhr, ajaxOptions, thrownError) {--}}
+                        {{--// alert(thrownError.substring(0, 10));--}}
+                        {{--alert(thrownError);--}}
+                    {{--},--}}
+                    {{--success: function (result) {--}}
+                        {{--location.href ="{{url('/ManufactureManage/Outputquantity/')}}";--}}
+                    {{--},--}}
+                {{--});--}}
+            {{--});--}}
         });
     </script>
 

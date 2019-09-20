@@ -27,8 +27,8 @@
                         <li><a href="/ManufactureManage/Processinfos">工艺单资料(Process Info)</a></li>
                         {{--<li><a href="/ManufactureManage/Outputheads">坯布生产数据(Production Data of GreyFabric )</a></li>--}}
                         {{--<li><a href="/ManufactureManage/Quantityreporthead">坯布质量数据(Quantity Data of GreyFabric)</a></li>--}}
-                        <li><a href="/ManufactureManage/Outputgreyfabric">坯布出货数据(Finishment Data of GreyFabric)</a></li>
                         <li><a href="/ManufactureManage/Outputquantity">坯布生产质量数据(Production and Quantity Data of GreyFabric)</a></li>
+                        <li><a href="/ManufactureManage/Outputgreyfabric">坯布出货数据(Finishment Data of GreyFabric)</a></li>
                         <li><a href="/ManufactureManage/Report">报表(Report)</a></li>
                     </ul>
                 </li>

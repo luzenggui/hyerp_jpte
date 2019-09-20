@@ -18,7 +18,7 @@ class OutputquantityController extends Controller
     {
         //
         $inputs = $request->all();
-        $outputquantitys = $this->searchrequest($request)->paginate(10);
+        $outputquantitys = $this->searchrequest($request)->orderby('created_at','desc')->paginate(10);
         return view('ManufactureManage.Outputquantity.index', compact('outputquantitys','inputs'));
     }
 
@@ -39,9 +39,10 @@ class OutputquantityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storenew(Request $request)
     {
         //
+
         $this->validate($request, [
             'outputdate'        => 'required',
             'manufactureshifts'  =>'required',
@@ -55,6 +56,31 @@ class OutputquantityController extends Controller
         $input = $request->all();
         $outputquantity=Outputquantity::create($input);
         return json_encode($outputquantity);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+//        dd(1);
+        $this->validate($request, [
+            'outputdate'        => 'required',
+            'manufactureshifts'  =>'required',
+            'length'        => 'integer',
+            'totalpoints'        => 'integer',
+            'checkshifts'        =>'required',
+            'machineno'        =>'required',
+            'note'  =>'required',
+        ]);
+
+        $input = $request->all();
+        Outputquantity::create($input);
+        return redirect('ManufactureManage/Outputquantity');
     }
 
     /**
