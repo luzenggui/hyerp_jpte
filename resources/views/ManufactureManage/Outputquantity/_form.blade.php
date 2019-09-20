@@ -302,9 +302,9 @@
 
         <div class="col-sm-offset-1 col-sm-1 pull-right">
 {{--            {!! Form::button($submitButtonText2, ['class' => $btnclass2, 'id' => 'btnSubmit2']) !!}--}}
-            {!! Form::submit($submitButtonText2, ['class' => $btnclass2, 'id' => 'btnSubmit2']) !!}
+{{--            {!! Form::submit($submitButtonText2, ['class' => $btnclass2, 'id' => 'btnSubmit2']) !!}--}}
 {{--            {!! Form::button($submitButtonText2, [ 'formmethod' => 'POST','formaction' => '\ManufactureManage\OutputquantityControll@storenew', 'class' =>  $btnclass2, 'id' => 'btnSubmit2']) !!}--}}
-            {{--<a href="{{ url('/ManufactureManage/Outputquantity/storenew') }}"  class="btn btn-success btn-sm">保存(Add)</a>--}}
+            <a href="{{ url('/ManufactureManage/Outputquantity') }}"  class="btn btn-success btn-sm">返回(Return)</a>
         </div>
     @elseif($formtype=='update')
         <div class="col-sm-offset-1 col-sm-1 pull-left">
