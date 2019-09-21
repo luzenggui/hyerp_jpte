@@ -103,7 +103,7 @@
 <div class="form-group">
     {!! Form::label('fabricno', '落布号(Fabricno)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
-        {!! Form::text('fabricno',isset($fabricno) ? $fabricno:null, ['class' => 'form-control', $attr]) !!}
+        {!! Form::text('fabricno',null, ['class' => 'form-control', $attr]) !!}
     </div>
 
     {!! Form::label('machineno', '织机号(Machineno)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}

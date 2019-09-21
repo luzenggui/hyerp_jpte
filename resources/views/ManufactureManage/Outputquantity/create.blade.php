@@ -14,7 +14,6 @@
                 'btnclass2' => 'btn btn-success btn-sm',
                 'outputdate'=>date('Y-m-d'),
                 'createname'=>Auth()->user()->name,
-                'fabricno'=>1,
                 'formtype'=>'new',
             ])
     {!! Form::close() !!}
