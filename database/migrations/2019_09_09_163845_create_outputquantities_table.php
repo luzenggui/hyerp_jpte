@@ -19,7 +19,7 @@ class CreateOutputquantitiesTable extends Migration
             $table->date('outputdate');                       //出货日期
             $table->string('number');                       //序号
             $table->string('checkno');                //检验工号
-            $table->string('manufactureshifts');                //制造班次
+            $table->string('manufactureshifts')->default('A');                //制造班次
             $table->integer('processinfo_id');                            //工艺单id
             $table->string('checkshifts');                //检验班次
             $table->string('createname');                            //创建人
@@ -29,6 +29,7 @@ class CreateOutputquantitiesTable extends Migration
             $table->string('fabricno')->default(1);                         //落布卷号
             $table->string('machineno');                            //织机号
             $table->integer('meter');                                 //验布长度
+            $table->integer('gfmeter');                                 //来坯长度
             $table->string('mass')->nullable();                                   //质量问题
 
             $table->string('note');                //验布工工号

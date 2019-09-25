@@ -84,19 +84,21 @@
             {!! Form::text('width', null, ['class' => 'form-control', 'readonly', $attr]) !!}
         @endif
     </div>
+    {!! Form::hidden('createname', isset($createname) ? $createname:null, ['class' => 'form-control']) !!}
 </div>
 
-<div class="form-group">
-    {!! Form::label('createname', '创建人(CreateName)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
-    <div class='col-xs-4 col-sm-4'>
-        {!! Form::text('createname', isset($createname) ? $createname:null, ['class' => 'form-control', $attr]) !!}
-    </div>
+{{--<div class="form-group">--}}
+    {{--{!! Form::label('createname', '创建人(CreateName)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}--}}
+    {{--<div class='col-xs-4 col-sm-4'>--}}
+        {{--{!! Form::text('createname', isset($createname) ? $createname:null, ['class' => 'form-control', $attr]) !!}--}}
+    {{--</div>--}}
 
-    {!! Form::label('remark', '备注(Remark)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
-    <div class='col-xs-4 col-sm-4'>
-        {!! Form::text('remark', null, ['class' => 'form-control', $attr]) !!}
-    </div>
-</div>
+    {{--{!! Form::label('remark', '备注(Remark)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}--}}
+    {{--<div class='col-xs-4 col-sm-4'>--}}
+        {{--{!! Form::text('remark', null, ['class' => 'form-control', $attr]) !!}--}}
+    {{--</div>--}}
+    {{----}}
+{{--</div>--}}
 
 <h3><strong>生产数据/Production Data:</strong></h3>
 <hr/>
@@ -124,6 +126,13 @@
     </div>
 </div>
 
+<div class="form-group">
+    {!! Form::label('gfmeter', '来坯布长(GFMeter)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
+    <div class='col-xs-4 col-sm-4'>
+        {!! Form::text('gfmeter', null, ['class' => 'form-control', $attr]) !!}
+    </div>
+</div>
+
 <h3><strong>质量数据/Quantity Data:</strong></h3>
 <hr/>
 <div class="form-group">
@@ -132,10 +141,10 @@
         {!! Form::text('note',null, ['class' => 'form-control', $attr]) !!}
     </div>
 
-    {!! Form::label('manufactureshifts', '班别(Manufactureshifts)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
-    <div class='col-xs-1 col-sm-1'>
-        {!! Form::select('manufactureshifts', array('A'=>'A','B'=>'B','C'=>'C',), ['class' => 'form-control', $attr]) !!}
-    </div>
+    {{--{!! Form::label('manufactureshifts', '班别(Manufactureshifts)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}--}}
+    {{--<div class='col-xs-1 col-sm-1'>--}}
+        {{--{!! Form::select('manufactureshifts', array('A'=>'A','B'=>'B','C'=>'C',), ['class' => 'form-control', $attr]) !!}--}}
+    {{--</div>--}}
 
     {!! Form::label('length', '码长(Length)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
     <div class='ccol-xs-1 col-sm-1'>

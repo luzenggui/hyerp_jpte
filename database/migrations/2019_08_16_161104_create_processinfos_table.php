@@ -19,7 +19,8 @@ class CreateProcessinfosTable extends Migration
             $table->string('insheetno')->unique();                       //厂编号
             $table->string('pattern');                         //花型
             $table->string('density');                   //纬密
-            $table->string('width');                           //门幅
+            $table->string('width');                           //坯布门幅
+            $table->string('ffwidth');                           //成布门幅
             $table->string('unit');                           //单位
             $table->string('syarntype');                           //纱支
             $table->string('contractno');                      //合同号

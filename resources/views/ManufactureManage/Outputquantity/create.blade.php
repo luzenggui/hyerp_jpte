@@ -94,8 +94,8 @@
                         alert(thrownError);
                     },
                     success: function (result) {
-                        $v_manufactureshift = $("#manufactureshifts").val();
-                        alert("The data for Class " + $v_manufactureshift + " saves successfully!");
+                        $v_note = $("#note").val();
+                        alert("The data for Class " + $v_note + " saves successfully!");
                         $("form input[id^='cd']").val("");
                         // $("#note").val("");
                         $("#length").val("");

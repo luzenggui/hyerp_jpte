@@ -45,7 +45,8 @@ class OutputquantityController extends Controller
 
         $this->validate($request, [
             'outputdate'        => 'required',
-            'manufactureshifts'  =>'required',
+            'gfmeter'   => 'required',
+//            'manufactureshifts'  =>'required',
             'length'        => 'integer',
             'totalpoints'        => 'integer',
             'checkshifts'        =>'required',
@@ -70,7 +71,8 @@ class OutputquantityController extends Controller
 //        dd(1);
         $this->validate($request, [
             'outputdate'        => 'required',
-            'manufactureshifts'  =>'required',
+            'gfmeter'   => 'required',
+//            'manufactureshifts'  =>'required',
             'length'        => 'integer',
             'totalpoints'        => 'integer',
             'checkshifts'        =>'required',

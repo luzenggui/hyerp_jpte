@@ -11,15 +11,16 @@ class Outputquantity extends Model
         'outputdate',
         'number',
         'checkno',
-        'manufactureshifts',
+//        'manufactureshifts',
         'processinfo_id',
         'checkshifts',
         'createname',
-        'remark',
+//        'remark',
 
         'fabricno',
         'machineno',
         'meter',
+        'gfmeter',
         'mass',
 
         'note',

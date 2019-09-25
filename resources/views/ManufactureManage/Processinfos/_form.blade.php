@@ -28,7 +28,7 @@
         @endif
     </div>
 
-    {!! Form::label('width', '门幅(Width)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
+    {!! Form::label('width', '坯布门幅(GF_Width)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
         @if(isset($prcessinfo))
             {!! Form::text('width',$prcessinfo->width,null, ['class' => 'form-control', $attr]) !!}
@@ -95,6 +95,15 @@
             {!! Form::text('specification',$prcessinfo->specification,null, ['class' => 'form-control', $attr]) !!}
         @else
             {!! Form::text('specification', null, ['class' => 'form-control', $attr]) !!}
+        @endif
+    </div>
+
+    {!! Form::label('ffwidth', '成布门幅(FF_Width)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
+    <div class='col-xs-4 col-sm-4'>
+        @if(isset($prcessinfo))
+            {!! Form::text('ffwidth',$prcessinfo->fdwidth,null, ['class' => 'form-control', $attr]) !!}
+        @else
+            {!! Form::text('ffwidth', null, ['class' => 'form-control', $attr]) !!}
         @endif
     </div>
 </div>

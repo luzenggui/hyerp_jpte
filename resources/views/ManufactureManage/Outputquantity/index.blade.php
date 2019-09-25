@@ -28,7 +28,7 @@
                         <th>FabricNo</th>
                         <th>Machineno</th>
                         <th>Meter</th>
-                        <th>Manufactureshifts</th>
+                        <th>Weaver NO</th>
                         <th>Length</th>
                         <th>Totalpoints</th>
                         <th>100ypoints</th>
@@ -56,7 +56,7 @@
                                 {{ $outputquantity->meter }}
                             </td>
                             <td>
-                                {{ $outputquantity->manufactureshifts }}
+                                {{ $outputquantity->note }}
                             </td>
                             <td>
                                 {{ $outputquantity->length }}
