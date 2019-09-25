@@ -97,6 +97,14 @@ class OutputgreyfabricController extends Controller
 
         $query = Outputgreyfabric::orderBy('outputdate', 'desc');
 
+        $key = $request->input('key');
+        if (strlen($key) > 0)
+        {
+            $query->processinfo->where('insheetno', 'like', '%'.$key.'%')
+                ->orWhere('contractno', 'like', '%'.$key.'%')
+                ->orWhere('pattern', 'like', '%'.$key.'%');
+        }
+
         if ($request->has('outputsdate') && $request->has('outputedate'))
         {
             $query->whereRaw('outputdate between \'' . $request->input('outputsdate') . '\' and \'' . $request->input('outputedate') . '\'');

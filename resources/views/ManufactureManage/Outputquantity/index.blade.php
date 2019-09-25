@@ -14,6 +14,8 @@
                 {!! Form::label('outputendlabel', '-', ['class' => 'control-label']) !!}
                 {!! Form::date('outputedate', null, ['class' => 'form-control']) !!}
 
+                {!! Form::text('key', null, ['class' => 'form-control', 'placeholder' => 'Fabirc/Contract No/Pattern','id'=>'key']) !!}
+
                 {!! Form::submit('Search', ['class' => 'btn btn-default btn-sm']) !!}
             </div>
             {!! Form::close() !!}

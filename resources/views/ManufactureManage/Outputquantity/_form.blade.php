@@ -1,32 +1,4 @@
 <div class="form-group">
-    {!! Form::label('orderquantity', '合同数量(Orderquantity)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
-    <div class='col-xs-4 col-sm-4'>
-        @if(isset($outputquantity))
-            {!! Form::text('orderquantity', $outputquantity->processinfo->orderquantity, ['class' => 'form-control','readonly', $attr]) !!}
-        @else
-            {!! Form::text('orderquantity', null, ['class' => 'form-control', 'readonly', $attr]) !!}
-        @endif
-    </div>
-
-    {!! Form::label('number', '序号(Number)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
-    <div class='col-xs-4 col-sm-4'>
-        {!! Form::text('number', null, ['class' => 'form-control', $attr]) !!}
-    </div>
-</div>
-
-<div class="form-group">
-    {!! Form::label('checkshifts', '验布班次(Checkshifts)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
-    <div class='col-xs-4 col-sm-4'>
-        {!! Form::select('checkshifts', array('A'=>'A','B'=>'B','C'=>'C',), ['class' => 'form-control', $attr]) !!}
-    </div>
-
-    {!! Form::label('checkno', '检验工号(CheckNo)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
-    <div class='col-xs-4 col-sm-4'>
-        {!! Form::text('checkno', null, ['class' => 'form-control', $attr]) !!}
-    </div>
-</div>
-
-<div class="form-group">
     {!! Form::label('insheetno', '厂编号(Fabric)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
         @if(isset($outputquantity))
@@ -37,17 +9,7 @@
         {!! Form::hidden('processinfo_id', null, ['id' => 'processinfo_id']) !!}
     </div>
 
-    {!! Form::label('outputdate', '日期(Date)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
-    <div class='col-xs-4 col-sm-4'>
-        {!! Form::date('outputdate',isset($outputdate) ? $outputdate:null, ['class' => 'form-control', $attr]) !!}
-    </div>
-
-</div>
-
-
-
-<div class="form-group">
-    {!! Form::label('pattern', '花型(Pattern)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
+    {!! Form::label('pattern', '花型(Pattern)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
         @if(isset($outputquantity))
             {!! Form::text('pattern', $outputquantity->processinfo->pattern, ['class' => 'form-control','readonly', $attr]) !!}
@@ -55,8 +17,10 @@
             {!! Form::text('pattern', null, ['class' => 'form-control', 'readonly', $attr]) !!}
         @endif
     </div>
+</div>
 
-    {!! Form::label('diliverydate', '交期(Plandshipdate)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
+<div class="form-group">
+    {!! Form::label('diliverydate', '交期(Plandshipdate)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
         @if(isset($outputquantity))
             {!! Form::text('diliverydate', $outputquantity->processinfo->diliverydate, ['class' => 'form-control','readonly', $attr]) !!}
@@ -64,15 +28,24 @@
             {!! Form::text('diliverydate', null, ['class' => 'form-control', 'readonly', $attr]) !!}
         @endif
     </div>
-</div>
 
-<div class="form-group">
-    {!! Form::label('density', '纬密(Density)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
+    {!! Form::label('density', '纬密(Density)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
         @if(isset($outputquantity))
             {!! Form::text('density', $outputquantity->processinfo->density, ['class' => 'form-control','readonly', $attr]) !!}
         @else
             {!! Form::text('density', null, ['class' => 'form-control', 'readonly', $attr]) !!}
+        @endif
+    </div>
+</div>
+
+<div class="form-group">
+    {!! Form::label('orderquantity', '合同数量(Orderquantity)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
+    <div class='col-xs-4 col-sm-4'>
+        @if(isset($outputquantity))
+            {!! Form::text('orderquantity', $outputquantity->processinfo->orderquantity, ['class' => 'form-control','readonly', $attr]) !!}
+        @else
+            {!! Form::text('orderquantity', null, ['class' => 'form-control', 'readonly', $attr]) !!}
         @endif
     </div>
 
@@ -86,6 +59,30 @@
     </div>
     {!! Form::hidden('createname', isset($createname) ? $createname:null, ['class' => 'form-control']) !!}
 </div>
+
+<div class="form-group">
+    {!! Form::label('number', '序号(Number)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
+    <div class='col-xs-4 col-sm-4'>
+        {!! Form::text('number', null, ['class' => 'form-control', $attr]) !!}
+    </div>
+
+    {!! Form::label('checkshifts', '验布班次(Checkshifts)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
+    <div class='col-xs-4 col-sm-4'>
+        {!! Form::select('checkshifts', array('A'=>'A','B'=>'B','C'=>'C',), ['class' => 'form-control', $attr]) !!}
+    </div>
+</div>
+
+<div class="form-group">
+    {!! Form::label('checkno', '检验工号(CheckNo)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
+    <div class='col-xs-4 col-sm-4'>
+        {!! Form::text('checkno', null, ['class' => 'form-control', $attr]) !!}
+    </div>
+
+     {!! Form::hidden('outputdate',isset($outputdate) ? $outputdate:null, ['class' => 'form-control', $attr]) !!}
+
+
+</div>
+
 
 {{--<div class="form-group">--}}
     {{--{!! Form::label('createname', '创建人(CreateName)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}--}}
@@ -103,26 +100,14 @@
 <h3><strong>生产数据/Production Data:</strong></h3>
 <hr/>
 <div class="form-group">
-    {!! Form::label('fabricno', '落布号(Fabricno)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
-    <div class='col-xs-4 col-sm-4'>
-        {!! Form::text('fabricno',null, ['class' => 'form-control', $attr]) !!}
-    </div>
-
-    {!! Form::label('machineno', '织机号(Machineno)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
+    {!! Form::label('machineno', '织机号(Machineno)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
         {!! Form::text('machineno', null, ['class' => 'form-control', $attr]) !!}
     </div>
-</div>
 
-<div class="form-group">
-    {!! Form::label('meter', '验布长(Meter)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
+    {!! Form::label('fabricno', '落布号(Fabricno)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
-        {!! Form::text('meter', null, ['class' => 'form-control', $attr]) !!}
-    </div>
-
-    {!! Form::label('mass', '质量问题(Mass)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
-    <div class='col-xs-4 col-sm-4'>
-        {!! Form::text('mass', null, ['class' => 'form-control', $attr]) !!}
+        {!! Form::text('fabricno',null, ['class' => 'form-control', $attr]) !!}
     </div>
 </div>
 
@@ -130,6 +115,18 @@
     {!! Form::label('gfmeter', '来坯布长(GFMeter)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
         {!! Form::text('gfmeter', null, ['class' => 'form-control', $attr]) !!}
+    </div>
+
+    {!! Form::label('meter', '验布长(Meter)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
+    <div class='col-xs-4 col-sm-4'>
+        {!! Form::text('meter', null, ['class' => 'form-control', $attr]) !!}
+    </div>
+</div>
+
+<div class="form-group">
+    {!! Form::label('mass', '质量问题(Mass)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
+    <div class='col-xs-4 col-sm-4'>
+        {!! Form::text('mass', null, ['class' => 'form-control', $attr]) !!}
     </div>
 </div>
 
