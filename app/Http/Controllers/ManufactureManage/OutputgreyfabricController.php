@@ -51,6 +51,21 @@ class OutputgreyfabricController extends Controller
 //            return json_encode(0);
     }
 
+    public function sumqtymeter(Request $request)
+    {
+        //
+//        dd('1111');
+//        Log::info('aaa');
+        $query=Outputgreyfabric::where('processinfo_id','=',$request->get('processinfo_id'));
+//        $query->where('outputdate','=',$request->get('outputdate'));
+
+        $summeter=$query->sum('qtyoutput');
+//        if($query->sum('meter')>0.0)
+        return json_encode($summeter);
+//        else
+//            return json_encode(0);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

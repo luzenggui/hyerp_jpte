@@ -48,7 +48,23 @@
             $("#qtyoutput").blur(function() {
                 if($("#qtyoutput").val()>=0)
                 {
-                    $("#qtyleft").val($("#qtyinspected").val()-$("#qtyoutput").val());
+                    $.ajax({
+                        type: "GET",
+                        url: "{{url('ManufactureManage/Outputgreyfabric/create/sumqtymeter')}}",
+                        data: {
+                            "processinfo_id" : $("#processinfo_id").val(),
+                            "outputdate" : $("#outputdate").val(),
+                        },
+                        dataType: "json",
+                        error: function (xhr, ajaxOptions, thrownError) {
+
+                            alert('error');
+                        },
+                        success: function (result) {
+                            // alert(result);
+                            $("#qtyleft").val($("#qtyinspected").val()-$("#qtyoutput").val()-result);
+                        },
+                    });
                 }
             });
         });
