@@ -48,29 +48,32 @@
         @endif
     </div>
 
-    {!! Form::label('segmentqty', '段数(Segmentqty):', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
-    <div class='col-xs-4 col-sm-4'>
-        {!! Form::text('segmentqty', null, ['class' => 'form-control', $attr]) !!}
-    </div>
-</div>
-
-
-<div class="form-group">
     {!! Form::label('qtyinspected', '验布长度(Qtyinspected)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
         {!! Form::text('qtyinspected',  null , ['class' => 'form-control', $attr]) !!}
     </div>
 
-    {!! Form::label('ifcomplete', '是否了机(Ifcomplete)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
-    <div class='col-xs-4 col-sm-4'>
-        {!! Form::select('ifcomplete', array('否'=>'否','是'=>'是'), ['class' => 'form-control', $attr]) !!}
-    </div>
 </div>
 
+
 <div class="form-group">
+    {!! Form::label('segmentqty', '段数(Segmentqty):', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
+    <div class='col-xs-4 col-sm-4'>
+        {!! Form::text('segmentqty', null, ['class' => 'form-control', $attr]) !!}
+    </div>
+
     {!! Form::label('qtyoutput', '出货长度(Qtyoutput)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
         {!! Form::text('qtyoutput', null, ['class' => 'form-control', $attr]) !!}
+    </div>
+
+
+</div>
+
+<div class="form-group">
+    {!! Form::label('ifcomplete', '是否了机(Ifcomplete)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
+    <div class='col-xs-4 col-sm-4'>
+        {!! Form::select('ifcomplete', array('否'=>'否','是'=>'是'), ['class' => 'form-control', $attr]) !!}
     </div>
 
     {!! Form::label('qtyleft', '余下长度(Qtyleft)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}

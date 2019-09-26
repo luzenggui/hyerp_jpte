@@ -139,6 +139,32 @@
         {!! Form::text('loosewarp', null,['class' => 'form-control',$attr,'id'=>'cd1']) !!}
     </div>
 
+    {!! Form::label('shirikend_pick', '经/纬起圈(Shirikend_pick)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
+    <div class='col-xs-1 col-sm-1'>
+        {!! Form::text('shirikend_pick', null,['class' => 'form-control',$attr,'id'=>'cd9']) !!}
+    </div>
+
+    {!! Form::label('weftbar', '稀密路(Weftbar)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
+    <div class='col-xs-1 col-sm-1'>
+        {!! Form::text('weftbar', null,['class' => 'form-control',$attr,'id'=>'cd13']) !!}
+    </div>
+
+    {!! Form::label('tw', '脱纬(Tw)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
+    <div class='col-xs-1 col-sm-1'>
+        {!! Form::text('tw', null,['class' => 'form-control',$attr,'id'=>'cd19']) !!}
+    </div>
+</div>
+
+<div class="form-group">
+    {!! Form::label('doublewarp_weft', '双经/双纬(Doublewarp_weft)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
+    <div class='col-xs-1 col-sm-1'>
+        {!! Form::text('doublewarp_weft', null,['class' => 'form-control',$attr,'id'=>'cd10']) !!}
+    </div>
+
+    {!! Form::label('brokend_fillings', '断经/纬(Brokend_fillings)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
+    <div class='col-xs-1 col-sm-1'>
+        {!! Form::text('brokend_fillings', null,['class' => 'form-control',$attr,'id'=>'cd5']) !!}
+    </div>
     {!! Form::label('wrongdraft', '错综(Wrongdraft)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
     <div class='col-xs-1 col-sm-1'>
         {!! Form::text('wrongdraft', null,['class' => 'form-control',$attr,'id'=>'cd2']) !!}
@@ -148,24 +174,19 @@
     <div class='col-xs-1 col-sm-1'>
         {!! Form::text('dentmark', null,['class' => 'form-control',$attr,'id'=>'cd3']) !!}
     </div>
-</div>
 
-<div class="form-group">
     {!! Form::label('warpstreak', '错扣(Warpstreak)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
     <div class='col-xs-1 col-sm-1'>
         {!! Form::text('warpstreak', null,['class' => 'form-control',$attr,'id'=>'cd4']) !!}
-    </div>
-
-    {!! Form::label('brokend_fillings', '断经/纬(Brokend_fillings)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
-    <div class='col-xs-1 col-sm-1'>
-        {!! Form::text('brokend_fillings', null,['class' => 'form-control',$attr,'id'=>'cd5']) !!}
     </div>
 
     {!! Form::label('hole', '破洞(Hole)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
     <div class='col-xs-1 col-sm-1'>
         {!! Form::text('hole', null,['class' => 'form-control',$attr,'id'=>'cd6']) !!}
     </div>
+</div>
 
+<div class="form-group">
     {!! Form::label('wrongend_pick', '错花/错格(Wrongend_pick)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
     <div class='col-xs-1 col-sm-1'>
         {!! Form::text('wrongend_pick', null,['class' => 'form-control',$attr,'id'=>'cd7']) !!}
@@ -176,18 +197,6 @@
         {!! Form::text('oiledend_pick', null,['class' => 'form-control',$attr,'id'=>'cd8']) !!}
     </div>
 
-    {!! Form::label('shirikend_pick', '经/纬起圈(Shirikend_pick)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
-    <div class='col-xs-1 col-sm-1'>
-        {!! Form::text('shirikend_pick', null,['class' => 'form-control',$attr,'id'=>'cd9']) !!}
-    </div>
-</div>
-
-<div class="form-group">
-    {!! Form::label('doublewarp_weft', '双经/双纬(Doublewarp_weft)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
-    <div class='col-xs-1 col-sm-1'>
-        {!! Form::text('doublewarp_weft', null,['class' => 'form-control',$attr,'id'=>'cd10']) !!}
-    </div>
-
     {!! Form::label('shw_selvedgemark', '边撑疵(Shw_selvedgemark)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
     <div class='col-xs-1 col-sm-1'>
         {!! Form::text('shw_selvedgemark', null,['class' => 'form-control',$attr,'id'=>'cd11']) !!}
@@ -196,11 +205,6 @@
     {!! Form::label('colorstreaks', '色档(Colorstreaks)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
     <div class='col-xs-1 col-sm-1'>
         {!! Form::text('colorstreaks', null,['class' => 'form-control',$attr,'id'=>'cd12']) !!}
-    </div>
-
-    {!! Form::label('weftbar', '稀密路(Weftbar)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
-    <div class='col-xs-1 col-sm-1'>
-        {!! Form::text('weftbar', null,['class' => 'form-control',$attr,'id'=>'cd13']) !!}
     </div>
 
     {!! Form::label('beltweft', '带纬(Beltweft)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
@@ -226,16 +230,6 @@
         {!! Form::text('neps', null,['class' => 'form-control',$attr,'id'=>'cd17']) !!}
     </div>
 
-    {!! Form::label('wrongdraft', '错综(Wrongdraft)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
-    <div class='col-xs-1 col-sm-1'>
-        {!! Form::text('wrongdraft', null,['class' => 'form-control',$attr,'id'=>'cd18']) !!}
-    </div>
-
-    {!! Form::label('tw', '脱纬(Tw)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
-    <div class='col-xs-1 col-sm-1'>
-        {!! Form::text('tw', null,['class' => 'form-control',$attr,'id'=>'cd19']) !!}
-    </div>
-
     {!! Form::label('fh', '织飞花(Fh)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
     <div class='col-xs-1 col-sm-1'>
         {!! Form::text('fh', null,['class' => 'form-control',$attr,'id'=>'cd20']) !!}
@@ -245,9 +239,7 @@
     <div class='col-xs-1 col-sm-1'>
         {!! Form::text('cws', null,['class' => 'form-control',$attr,'id'=>'cd21']) !!}
     </div>
-</div>
 
-<div class="form-group">
     {!! Form::label('th', '条花(Th)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
     <div class='col-xs-1 col-sm-1'>
         {!! Form::text('th', null,['class' => 'form-control',$attr,'id'=>'cd22']) !!}
@@ -257,7 +249,9 @@
     <div class='col-xs-1 col-sm-1'>
         {!! Form::text('thn', null,['class' => 'form-control',$attr,'id'=>'cd23']) !!}
     </div>
+</div>
 
+<div class="form-group">
     {!! Form::label('bsc', '边纱长(Bsc)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
     <div class='col-xs-1 col-sm-1'>
         {!! Form::text('bsc', null,['class' => 'form-control',$attr,'id'=>'cd24']) !!}
@@ -277,9 +271,7 @@
     <div class='col-xs-1 col-sm-1'>
         {!! Form::text('y100points', null, ['class' => 'form-control', 'readonly',$attr]) !!}
     </div>
-</div>
 
-<div class="form-group">
     {!! Form::label('grade', '等级(Grade)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
     <div class='col-xs-1 col-sm-1'>
         {!! Form::text('grade', null, ['class' => 'form-control', 'readonly',$attr]) !!}
