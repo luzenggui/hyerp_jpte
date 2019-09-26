@@ -50,7 +50,7 @@
 
     {!! Form::label('qtyinspected', '验布长度(Qtyinspected)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
-        {!! Form::text('qtyinspected',  null , ['class' => 'form-control', $attr]) !!}
+        {!! Form::text('qtyinspected',  null , ['class' => 'form-control','readonly', $attr]) !!}
     </div>
 
 </div>

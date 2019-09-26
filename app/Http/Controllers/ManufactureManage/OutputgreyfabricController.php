@@ -42,7 +42,7 @@ class OutputgreyfabricController extends Controller
 //        dd('1111');
 //        Log::info('aaa');
         $query=Outputquantity::where('processinfo_id','=',$request->get('processinfo_id'));
-        $query->where('outputdate','=',$request->get('outputdate'));
+//        $query->where('outputdate','=',$request->get('outputdate'));
 
         $summeter=$query->sum('meter');
 //        if($query->sum('meter')>0.0)
