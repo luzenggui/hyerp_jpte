@@ -87,7 +87,7 @@ class OutputgreyfabricController extends Controller
     {
         //
         $inputs = $request->all();
-
+//        dd($inputs);
         $outputgreyfabrics = $this->searchrequest($request)->paginate(10);
         return view('ManufactureManage.Outputgreyfabric.index', compact('outputgreyfabrics', 'inputs'));
     }
@@ -97,13 +97,17 @@ class OutputgreyfabricController extends Controller
 
         $query = Outputgreyfabric::orderBy('outputdate', 'desc');
 
-        $key = $request->input('key');
-        if (strlen($key) > 0)
+        if ($request->has('key') && strlen($request->get('key')) > 0)
         {
-            $query->processinfo->where('insheetno', 'like', '%'.$key.'%')
-                ->orWhere('contractno', 'like', '%'.$key.'%')
-                ->orWhere('pattern', 'like', '%'.$key.'%');
+            $key = $request->get('key');
+            $query->leftJoin('processinfos','processinfos.id','=','outputgreyfabrics.processinfo_id')
+                ->where(function ($query) use ($key){
+                $query ->where( 'processinfos.insheetno', 'like', '%'.$key.'%')
+                ->orWhere('processinfos.contractno', 'like', '%'.$key.'%')
+                ->orWhere('processinfos.pattern', 'like', '%'.$key.'%');
+                });
         }
+
 
         if ($request->has('outputsdate') && $request->has('outputedate'))
         {
@@ -118,8 +122,8 @@ class OutputgreyfabricController extends Controller
             $query->whereRaw('outputdate between \'' . $date . '\' and \'' . $date . '\'');
 
         }
-
-        $outputgreyfabricss = $query->select('*');
+//        dd($query);
+        $outputgreyfabricss = $query->select('outputgreyfabrics.*');
 
         return $outputgreyfabricss;
     }

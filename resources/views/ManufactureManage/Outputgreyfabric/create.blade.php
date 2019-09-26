@@ -45,6 +45,12 @@
                     },
                 });
             });
+            $("#qtyoutput").blur(function() {
+                if($("#qtyoutput").val()>=0)
+                {
+                    $("#qtyleft").val($("#qtyinspected").val()-$("#qtyoutput").val());
+                }
+            });
         });
     </script>
     @include('ManufactureManage.Processinfos._selectprocessinfojs');

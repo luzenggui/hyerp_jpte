@@ -83,20 +83,6 @@
 
 </div>
 
-
-{{--<div class="form-group">--}}
-    {{--{!! Form::label('createname', '创建人(CreateName)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}--}}
-    {{--<div class='col-xs-4 col-sm-4'>--}}
-        {{--{!! Form::text('createname', isset($createname) ? $createname:null, ['class' => 'form-control', $attr]) !!}--}}
-    {{--</div>--}}
-
-    {{--{!! Form::label('remark', '备注(Remark)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}--}}
-    {{--<div class='col-xs-4 col-sm-4'>--}}
-        {{--{!! Form::text('remark', null, ['class' => 'form-control', $attr]) !!}--}}
-    {{--</div>--}}
-    {{----}}
-{{--</div>--}}
-
 <h3><strong>生产数据/Production Data:</strong></h3>
 <hr/>
 <div class="form-group">

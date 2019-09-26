@@ -27,6 +27,8 @@
                 {!! Form::date('sdate', $sampdate, ['class' => 'form-control']) !!}
                 {!! Form::label('applydatelabelto', '-', ['class' => 'control-label']) !!}
                 {!! Form::date('edate', $sampdate, ['class' => 'form-control']) !!}
+
+                {!! Form::text('searchkey', $searchkey, ['class' => 'form-control']) !!}
             @endif
 
             {!! Form::submit('查找(Search)', ['class' => 'btn btn-default btn-sm']) !!}

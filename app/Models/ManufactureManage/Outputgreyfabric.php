@@ -15,6 +15,7 @@ class Outputgreyfabric extends Model
         'ifcomplete',
         'createname',
         'qtyoutput',
+        'qtyleft',
     ];
 
     public function processinfo() {

@@ -73,10 +73,14 @@
         {!! Form::text('qtyoutput', null, ['class' => 'form-control', $attr]) !!}
     </div>
 
-    {!! Form::label('createname', '创建人(Createname)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
+    {!! Form::label('qtyleft', '余下长度(Qtyleft)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
     <div class='col-xs-4 col-sm-4'>
-        {!! Form::text('createname', isset($createname) ? $createname:null, ['class' => 'form-control', 'readonly',$attr]) !!}
+        {!! Form::text('qtyleft', null, ['class' => 'form-control', 'readonly',$attr]) !!}
     </div>
+
+
+    {!! Form::hidden('createname', isset($createname) ? $createname:null, ['class' => 'form-control', 'readonly',$attr]) !!}
+
 </div>
 
 <div class="form-group">

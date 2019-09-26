@@ -18,7 +18,7 @@ class OutputquantityController extends Controller
     {
         //
         $inputs = $request->all();
-        $outputquantitys = $this->searchrequest($request)->orderby('created_at','desc')->paginate(10);
+        $outputquantitys = $this->searchrequest($request)->orderby('outputquantities.created_at','desc')->paginate(10);
         return view('ManufactureManage.Outputquantity.index', compact('outputquantitys','inputs'));
     }
 
@@ -110,12 +110,15 @@ class OutputquantityController extends Controller
 
         $query = Outputquantity::orderBy('outputdate', 'desc');
 
-        $key = $request->input('key');
-        if (strlen($key) > 0)
+        if ($request->has('key') && strlen($request->get('key')) > 0)
         {
-            $query->processinfo()->where('insheetno', 'like', '%'.$key.'%')
-                ->orWhere('contractno', 'like', '%'.$key.'%')
-                ->orWhere('pattern', 'like', '%'.$key.'%');
+            $key = $request->get('key');
+            $query->leftJoin('processinfos','processinfos.id','=','outputquantities.processinfo_id')
+                ->where(function ($query) use ($key){
+                    $query ->where( 'processinfos.insheetno', 'like', '%'.$key.'%')
+                        ->orWhere('processinfos.contractno', 'like', '%'.$key.'%')
+                        ->orWhere('processinfos.pattern', 'like', '%'.$key.'%');
+                });
         }
 
         if ($request->has('outputsdate') && $request->has('outputedate'))
@@ -132,7 +135,7 @@ class OutputquantityController extends Controller
 
         }
 
-        $outputquantitys = $query->select('*');
+        $outputquantitys = $query->select('outputquantities.*');
         return $outputquantitys;
     }
 
