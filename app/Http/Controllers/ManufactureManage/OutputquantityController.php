@@ -117,7 +117,8 @@ class OutputquantityController extends Controller
                 ->where(function ($query) use ($key){
                     $query ->where( 'processinfos.insheetno', 'like', '%'.$key.'%')
                         ->orWhere('processinfos.contractno', 'like', '%'.$key.'%')
-                        ->orWhere('processinfos.pattern', 'like', '%'.$key.'%');
+                        ->orWhere('processinfos.pattern', 'like', '%'.$key.'%')
+                        ->orWhere('outputquantities.number','like', '%'.$key.'%');
                 });
         }
 
