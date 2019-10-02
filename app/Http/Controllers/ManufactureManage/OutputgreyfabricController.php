@@ -21,7 +21,7 @@ class OutputgreyfabricController extends Controller
         //
 //        $outputgreyfabrics = Outputgreyfabric::latest('created_at')->paginate(10);.
         $inputs = $request->all();
-        $outputgreyfabrics = $this->searchrequest($request)->paginate(10);
+        $outputgreyfabrics = $this->searchrequest($request)->orderby('outputgreyfabrics.created_at','desc')->paginate(10);
         return view('ManufactureManage.Outputgreyfabric.index', compact('outputgreyfabrics','inputs'));
     }
 
