@@ -84,7 +84,6 @@
     </div>
      {{--{!! Form::hidden('outputdate',isset($outputdate) ? $outputdate:null, ['class' => 'form-control', $attr]) !!}--}}
 
-
 </div>
 
 <h3><strong>生产数据/Production Data:</strong></h3>
