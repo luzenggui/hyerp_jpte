@@ -22,8 +22,19 @@
     @include('ManufactureManage.Processinfos._selectprocessinfojs');
     <script type="text/javascript">
         jQuery(document).ready(function(e) {
-
             $("#length").blur(function () {
+                var v_length = $("#length").val();
+                if (v_length != "" && isNaN(v_length)) {
+                    var arr = new Array();
+                    arr = v_length.split('-');
+                    var v_data = parseInt(arr[1]) - parseInt(arr[0]);
+                    if (v_data < 0) {
+                        alert("The value is wrong!");
+                        return;
+                    }
+                    $("#length").val(v_data);
+                }
+                
                 if ($("#length").val() > 0.0 && $("#totalpoints").val() >= 0.0) {
                     var v_100ypoint = ($("#totalpoints").val() / $("#length").val()) * 100;
                     var v_100ypoints = v_100ypoint.toFixed(2);
