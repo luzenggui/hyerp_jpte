@@ -78,7 +78,11 @@
         {!! Form::text('checkno', null, ['class' => 'form-control', $attr]) !!}
     </div>
 
-     {!! Form::hidden('outputdate',isset($outputdate) ? $outputdate:null, ['class' => 'form-control', $attr]) !!}
+    {!! Form::label('outputdate', '出货日期(Outputdate)', ['class' => 'col-xs-1 col-sm-1 control-label']) !!}
+    <div class='col-xs-4 col-sm-4'>
+        {!! Form::date('outputdate', isset($outputdate) ? $outputdate:null, ['class' => 'form-control', $attr]) !!}
+    </div>
+     {{--{!! Form::hidden('outputdate',isset($outputdate) ? $outputdate:null, ['class' => 'form-control', $attr]) !!}--}}
 
 
 </div>
