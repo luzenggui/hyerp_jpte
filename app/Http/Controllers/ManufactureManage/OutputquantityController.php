@@ -145,6 +145,9 @@ class OutputquantityController extends Controller
                 case 'fabricno':
                     $query->where('fabricno','=',$request->get('search_key'));
                     break;
+                case 'machineno':
+                    $query->where('machineno','=',$request->get('search_key'));
+                    break;
                 default:
                     break;
             };

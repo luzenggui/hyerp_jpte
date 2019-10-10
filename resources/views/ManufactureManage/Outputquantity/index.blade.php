@@ -16,7 +16,7 @@
 
                 {!! Form::text('key', null, ['class' => 'form-control', 'placeholder' => 'Fabirc/Contract No/Pattern','id'=>'key']) !!}
 
-                {!! Form::select('search_type', ['number' => '序号', 'fabricno' => '落布号'], null, ['class' => 'form-control', 'placeholder' => '--Search Key Type--']) !!}
+                {!! Form::select('search_type', ['number' => '序号', 'fabricno' => '落布号', 'machineno' => '机台号'], null, ['class' => 'form-control', 'placeholder' => '--Search Key Type--']) !!}
                 {!! Form::text('search_key', null, ['class' => 'form-control', 'placeholder' => 'Search Key Value']) !!}
                 {!! Form::submit('Search', ['class' => 'btn btn-default btn-sm']) !!}
             </div>
