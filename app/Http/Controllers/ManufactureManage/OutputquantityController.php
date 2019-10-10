@@ -135,6 +135,21 @@ class OutputquantityController extends Controller
 
         }
 
+        if ($request->has('search_type') && strlen($request->get('search_type')) > 0)
+        {
+            switch ($request->get('search_type'))
+            {
+                case 'number':
+                    $query->where('number','=',$request->get('search_key'));
+                    break;
+                case 'fabricno':
+                    $query->where('fabricno','=',$request->get('search_key'));
+                    break;
+                default:
+                    break;
+            };
+        }
+//        dd($query);
         $outputquantitys = $query->select('outputquantities.*');
         return $outputquantitys;
     }

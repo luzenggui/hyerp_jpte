@@ -34,7 +34,7 @@
                     }
                     $("#length").val(v_data);
                 }
-                
+
                 if ($("#length").val() > 0.0 && $("#totalpoints").val() >= 0.0) {
                     var v_100ypoint = ($("#totalpoints").val() / $("#length").val()) * 100;
                     var v_100ypoints = v_100ypoint.toFixed(2);
