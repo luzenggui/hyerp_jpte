@@ -24,12 +24,20 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">生产管理(ManufatureManage)<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/ManufactureManage/Processinfos">工艺单资料(Process Info)</a></li>
+                        @can('menu_processinfo')
+                            <li><a href="/ManufactureManage/Processinfos">工艺单资料(Process Info)</a></li>
+                        @endcan
                         {{--<li><a href="/ManufactureManage/Outputheads">坯布生产数据(Production Data of GreyFabric )</a></li>--}}
                         {{--<li><a href="/ManufactureManage/Quantityreporthead">坯布质量数据(Quantity Data of GreyFabric)</a></li>--}}
-                        <li><a href="/ManufactureManage/Outputquantity">坯布生产质量数据(Production and Quantity Data of GreyFabric)</a></li>
-                        <li><a href="/ManufactureManage/Outputgreyfabric">坯布出货数据(Finishment Data of GreyFabric)</a></li>
-                        <li><a href="/ManufactureManage/Report">报表(Report)</a></li>
+                        @can('menu_outputquantity')
+                            <li><a href="/ManufactureManage/Outputquantity">坯布生产质量数据(Production and Quantity Data of GreyFabric)</a></li>
+                        @endcan
+                        @can('menu_outputgreyfabric')
+                            <li><a href="/ManufactureManage/Outputgreyfabric">坯布出货数据(Finishment Data of GreyFabric)</a></li>
+                        @endcan
+                        @can('menu_report')
+                            <li><a href="/ManufactureManage/Report">报表(Report)</a></li>
+                        @endcan
                     </ul>
                 </li>
                 <li class="dropdown">

@@ -1,11 +1,11 @@
 @extends('navbarerp')
 @section('title', '坯布出货信息')
 @section('main')
-
-    <div class="panel-heading">
-        <a href="/ManufactureManage/Outputgreyfabric/create" class="btn btn-sm btn-success">新建(New)</a>
-    </div>
-
+    @can('new_outputgreyfabric')
+        <div class="panel-heading">
+            <a href="/ManufactureManage/Outputgreyfabric/create" class="btn btn-sm btn-success">新建(New)</a>
+        </div>
+    @endcan
     <div class="panel-body">
 
             {!! Form::open(['url' => '/ManufactureManage/Outputgreyfabric/search', 'class' => 'pull-right form-inline', 'id' => 'frmSearch']) !!}
@@ -64,10 +64,14 @@
                                 {{ $outputgreyfabric->qtyoutput }}
                             </td>
                             <td>
-                                <a href="{{ URL::to('/ManufactureManage/Outputgreyfabric/'.$outputgreyfabric->id.'/edit') }}" class="btn btn-success btn-sm pull-left">Edit</a>
-                                {!! Form::open(array('route' => array('Outputgreyfabric.destroy', $outputgreyfabric->id), 'method' => 'delete', 'onsubmit' => 'return confirm("确定删除此记录(Confirm to delete this record)?");')) !!}
-                                    {!! Form::submit('Del', ['class' => 'btn btn-danger btn-sm pull-left']) !!}
-                                {!! Form::close() !!}
+                                @can('edit_outputgreyfabric')
+                                    <a href="{{ URL::to('/ManufactureManage/Outputgreyfabric/'.$outputgreyfabric->id.'/edit') }}" class="btn btn-success btn-sm pull-left">Edit</a>
+                                @endcan
+                                @can('del_outputgreyfabric')
+                                    {!! Form::open(array('route' => array('Outputgreyfabric.destroy', $outputgreyfabric->id), 'method' => 'delete', 'onsubmit' => 'return confirm("确定删除此记录(Confirm to delete this record)?");')) !!}
+                                        {!! Form::submit('Del', ['class' => 'btn btn-danger btn-sm pull-left']) !!}
+                                    {!! Form::close() !!}
+                                @endcan
                                 {{--<a href="{{ URL::to('/development/fabricdischarges/'.$fabricdischarge->id . '/export') }}" class="btn btn-success btn-sm pull-left">导出</a>--}}
                             </td>
                         </tr>
