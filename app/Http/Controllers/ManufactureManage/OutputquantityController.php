@@ -6,6 +6,8 @@ use App\Models\ManufactureManage\Outputquantity;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use mysql_xdevapi\Exception;
+use Log;
 
 class OutputquantityController extends Controller
 {
@@ -185,6 +187,29 @@ class OutputquantityController extends Controller
 //        dd($request->all());
         return redirect('ManufactureManage/Outputquantity');
     }
+
+
+    public function delalloutputquantity(Request $request)
+    {
+        //
+//        dd($request->all());
+        $ids = [];
+//        log:info($request->all());
+        if ($request->has('ids'))
+            $ids = explode(",", $request->input('ids'));
+//        Log::info($ids);
+        foreach ($ids as $id) {
+            Outputquantity::destroy($id);
+        }
+
+        $data = [
+            'errcode' => 0,
+            'errmsg' => 'Success to del',
+//            'popoverhtml' => $popoverhtml,
+        ];
+        return response()->json($data);
+    }
+
 
     /**
      * Remove the specified resource from storage.

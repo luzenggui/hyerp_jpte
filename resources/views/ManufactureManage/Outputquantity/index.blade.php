@@ -4,6 +4,10 @@
     @can('new_outputquantity')
         <div class="panel-heading">
             <a href="/ManufactureManage/Outputquantity/create" class="btn btn-sm btn-success">新建(New)</a>
+            {{--{!! Form::open(array('route' => array('Outputquantity.destroy', $outputquantity->id), 'method' => 'delete', 'onsubmit' => 'return confirm("确定删除此记录(Confirm to delete this record)?")')) !!}--}}
+                {{--{!! Form::submit('删除(Del)', ['class' => 'btn btn-danger btn-sm pull-left']) !!}--}}
+            {{--{!! Form::close() !!}--}}
+            {!! Form::button('删除(Del)', ['class' => 'btn btn-sm btn-danger', 'id' => 'btnDelOutputquantity']) !!}
         </div>
     @endcan
         <div class="panel-body">
@@ -24,9 +28,10 @@
 
         @if ($outputquantitys->count())
 
-            <table class="table table-striped table-hover table-condensed">
+            <table class="table table-striped table-hover table-condensed" id="tbMain">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Date</th>
                         <th>Fabric</th>
                         <th>FabricNo</th>
@@ -44,6 +49,9 @@
                 <tbody>
                     @foreach($outputquantitys as $outputquantity)
                         <tr>
+                            <td>
+                                <input type="checkbox" class="qx" value="{{ $outputquantity->id }}" data-id="{{ $outputquantity->id }}">
+                            </td>
                             <td>
                                 {{$outputquantity->outputdate}}
                             </td>
@@ -108,5 +116,42 @@
 
 @section('script')
     @include('ManufactureManage.Processinfos._selectprocessinfojs')
-
+    <script type="text/javascript">
+        jQuery(document).ready(function(e) {
+            $("#btnDelOutputquantity").click(function(e) {
+                var checkvalues = [];
+                var checknumbers = [];
+                $("#tbMain").find("input[type='checkbox']:checked").each(function (i) {
+                    checkvalues[i] =$(this).val();
+                    checknumbers[i] = $(this).attr('data-id');
+                });
+                if(checkvalues.length == 0)
+                {
+                    alert("请选择记录删除");
+                    return;
+                }
+                // alert(checkvalues);
+                $.ajax({
+                    type: "GET",
+                    data: "ids=" + checkvalues.join(","),
+                    url: "{!! url('/ManufactureManage/Outputquantity/items/delalloutputquantity') !!}",
+                    success: function(result) {
+                        if(result.errcode == 0)
+                        {
+                            alert(result.errmsg);
+                        }
+                        else
+                        {
+                            alert(JSON.stringify(result));
+                        }
+                        // addBtnClickEvent('btnSelectOrder_0');
+                        location.reload(true);
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert('Failed to del' . JSON.stringify(xhr));
+                    },
+                });
+            });
+         });
+    </script>
 @endsection
