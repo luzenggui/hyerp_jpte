@@ -3,7 +3,7 @@
 @section('main')
     <h1>添加坯布生产质量信息(Add Production and Quantity of Greyfabric Information)</h1>
     <hr/>
-    
+    {{--'outputdate'=>date('Y-m-d',time()-5*60*60),--}}
     {!! Form::open(['url' => 'ManufactureManage/Outputquantity', 'class' => 'form-horizontal','id'=>'frmAddprd_quan']) !!}
         @include('ManufactureManage.Outputquantity._form',
             [
@@ -12,7 +12,7 @@
                 'submitButtonText2'=>'保存(Add)',
                 'btnclass' => 'btn btn-primary',
                 'btnclass2' => 'btn btn-success btn-sm',
-                'outputdate'=>date('Y-m-d',time()-5*60*60),
+                'outputdate'=>date('Y-m-d'),
                 'createname'=>Auth()->user()->name,
                 'formtype'=>'new',
             ])

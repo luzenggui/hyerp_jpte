@@ -10,7 +10,7 @@
                 'submitButtonText' => '添加(Add)',
                 'attr' => '',
                 'btnclass' => 'btn btn-primary',
-                'outputdate'=>date('Y-m-d',time()-5*60*60),
+                'outputdate'=>date('Y-m-d'),
                 'createname'=>Auth()->user()->name,
             ])
     {!! Form::close() !!}
