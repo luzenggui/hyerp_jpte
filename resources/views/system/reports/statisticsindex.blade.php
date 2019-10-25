@@ -37,7 +37,7 @@
     </div>
 
     <?php $hasright = false; ?>
-    @if ($report->name == "pGetOutputData")
+    @if ($report->name == "pGetOutputData" || $report->name == "pGetProductionData" || $report->name == "pGetQuantityData")
         {{--@can('system_report_sh_shipment_pvh')--}}
             <?php $hasright = true; ?>
         {{--@endcan--}}
