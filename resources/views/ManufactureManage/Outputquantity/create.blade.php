@@ -12,7 +12,7 @@
                 'submitButtonText2'=>'保存(Add)',
                 'btnclass' => 'btn btn-primary',
                 'btnclass2' => 'btn btn-success btn-sm',
-                'outputdate'=>date('Y-m-d'),
+                'outputdate'=>date('Y-m-d',time()-5*60*60),
                 'createname'=>Auth()->user()->name,
                 'formtype'=>'new',
             ])
