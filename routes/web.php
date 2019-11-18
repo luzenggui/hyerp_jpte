@@ -38,6 +38,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 Route::group(['prefix' => 'ManufactureManage', 'namespace' => 'ManufactureManage', 'middleware' => ['web', 'auth']], function() {
+    Route::resource('DataSync', 'DataSyncController');
+    Route::post('DataSync/synchronization', 'DataSyncController@synchronization');
     Route::resource('Processinfos', 'ProcessinfoController');
     Route::post('Processinfos/search', 'ProcessinfoController@search');
     Route::group(['prefix' => 'Processinfos'], function() {

@@ -46,6 +46,7 @@
                         @can('module_system')
                         {{--<li><a href="/system/employees">员工</a></li>--}}
                         <li><a href="/system/users">用户管理(User Management)</a></li>
+                        <li><a href="/ManufactureManage/DataSync">数据同步(Data Synchronization)</a></li>
                         @endcan
                         @if (Auth::user()->email === "admin@admin.com")
                             <li><a href="/system/reports">报表(Report)</a></li>
