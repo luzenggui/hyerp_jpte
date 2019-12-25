@@ -81,7 +81,6 @@
         {!! Form::text('qtyleft', null, ['class' => 'form-control', 'readonly',$attr]) !!}
     </div>
 
-
     {!! Form::hidden('createname', isset($createname) ? $createname:null, ['class' => 'form-control', 'readonly',$attr]) !!}
 
 </div>
