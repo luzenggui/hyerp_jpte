@@ -27,6 +27,7 @@
                         <th>Planedshipdate</th>
                         <th>Orderedquantity</th>
                         <th>Specification</th>
+                        <th>Yarn/100m</th>
                         <th>Createdate</th>
                         <th>Operation</th>
                     </tr>
@@ -60,6 +61,9 @@
                             </td>
                             <td>
                                 {{ $processinfo->specification }}
+                            </td>
+                            <td>
+                                {{ $processinfo->yarn100m }}
                             </td>
                             <td>
                                 {{ $processinfo->created_at }}

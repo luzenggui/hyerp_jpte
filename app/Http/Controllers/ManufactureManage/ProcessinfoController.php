@@ -59,6 +59,7 @@ class ProcessinfoController extends Controller
             'diliverydate'        => 'required',
             'specification'        => 'required',
             'orderquantity'        => 'required|integer',
+            'yarn100m'        => 'required|numeric',
         ],array('insheetno.unique' => 'Fabric must be unique',
             'insheetno.required'  => 'Fabric is required',));
 

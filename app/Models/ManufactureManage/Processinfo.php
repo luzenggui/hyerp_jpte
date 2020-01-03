@@ -19,5 +19,6 @@ class Processinfo extends Model
         'diliverydate',
         'orderquantity',
         'specification',
+        'yarn100m',
     ];
 }

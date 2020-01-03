@@ -27,6 +27,7 @@ class CreateProcessinfosTable extends Migration
             $table->date('diliverydate');                      //交期
             $table->string('orderquantity');                  //合同数量
             $table->string('specification');                   //产品规格
+            $table->string('yarn100m');                       //百米用纱量
 
             $table->timestamps();
         });
