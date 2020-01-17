@@ -35,12 +35,15 @@
                         @can('menu_outputgreyfabric')
                             <li><a href="/ManufactureManage/Outputgreyfabric">坯布出货数据(Finishment Data of GreyFabric)</a></li>
                         @endcan
-                        @can('menu_firstffabric')
-                            <li><a href="/ManufactureManage/Firstffabric">成布首落布数据(First Finishment Data of FinishFabric)</a></li>
+                        @can('menu_outputfinishfabric')
+                            <li><a href="/ManufactureManage/Outputfinishfabric">成布生产质量数据(Production and Quantity Data of GreyFabric)</a></li>
                         @endcan
-                        @can('menu_gradecffabric')
-                            <li><a href="/ManufactureManage/Gradecffabric">成布C级布数据(Grade C Data of FinishFabric)</a></li>
-                        @endcan
+                        {{--@can('menu_firstffabric')--}}
+                            {{--<li><a href="/ManufactureManage/Firstffabric">成布首落布数据(First Finishment Data of FinishFabric)</a></li>--}}
+                        {{--@endcan--}}
+                        {{--@can('menu_gradecffabric')--}}
+                            {{--<li><a href="/ManufactureManage/Gradecffabric">成布C级布数据(Grade C Data of FinishFabric)</a></li>--}}
+                        {{--@endcan--}}
                         @can('menu_report')
                             <li><a href="/ManufactureManage/Report">报表(Report)</a></li>
                         @endcan

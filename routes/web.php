@@ -63,6 +63,11 @@ Route::group(['prefix' => 'ManufactureManage', 'namespace' => 'ManufactureManage
     Route::post('Outputquantity/storenew', 'OutputquantityController@storenew');
     Route::get('Outputquantity/items/delalloutputquantity', 'OutputquantityController@delalloutputquantity');
 
+    Route::resource('Outputfinishfabric', 'OutputfinishfabricController');
+    Route::post('Outputfinishfabric/search', 'OutputfinishfabricController@search');
+    Route::post('Outputfinishfabric/storenew', 'OutputfinishfabricController@storenew');
+    Route::get('Outputfinishfabric/items/delalloutputfinishfabric', 'OutputfinishfabricController@delalloutputfinishfabric');
+
     Route::resource('Outputheads', 'OutputheadController');
     Route::resource('Outputitems', 'OutputitemController');
     Route::group(['prefix' => 'Outputheads/{id}'], function() {
