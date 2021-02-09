@@ -20,5 +20,6 @@ class Processinfo extends Model
         'orderquantity',
         'specification',
         'yarn100m',
+        'code',
     ];
 }

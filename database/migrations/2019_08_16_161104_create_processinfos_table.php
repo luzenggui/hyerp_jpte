@@ -28,6 +28,7 @@ class CreateProcessinfosTable extends Migration
             $table->string('orderquantity');                  //合同数量
             $table->string('specification');                   //产品规格
             $table->string('yarn100m');                       //百米用纱量
+            $table->string('code')->nullabel();                       //成品代码
 
             $table->timestamps();
         });

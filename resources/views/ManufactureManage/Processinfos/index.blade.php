@@ -28,6 +28,7 @@
                         <th>Orderedquantity</th>
                         <th>Specification</th>
                         <th>Yarn/100m</th>
+                        <th>Code</th>
                         <th>Createdate</th>
                         <th>Operation</th>
                     </tr>
@@ -64,6 +65,9 @@
                             </td>
                             <td>
                                 {{ $processinfo->yarn100m }}
+                            </td>
+                            <td>
+                                {{ $processinfo->code }}
                             </td>
                             <td>
                                 {{ $processinfo->created_at }}

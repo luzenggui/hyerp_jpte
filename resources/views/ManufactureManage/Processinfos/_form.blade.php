@@ -115,6 +115,14 @@
             {!! Form::text('yarn100m', null, ['class' => 'form-control', $attr]) !!}
         @endif
     </div>
+    {!! Form::label('Code', '代码(Code)', ['class' => 'col-xs-2 col-sm-2 control-label']) !!}
+    <div class='col-xs-4 col-sm-4'>
+        @if(isset($prcessinfo))
+            {!! Form::text('code',$prcessinfo->code,null, ['class' => 'form-control', $attr]) !!}
+        @else
+            {!! Form::text('code', null, ['class' => 'form-control', $attr]) !!}
+        @endif
+    </div>
 
 </div>
 
